@@ -24,3 +24,4 @@ from pm25 p
 left join weather w
     on  p.metro = w.metro
     and p.measured_at = w.measured_at
+-- ci smoke test
