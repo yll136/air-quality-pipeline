@@ -30,7 +30,8 @@ resource "aws_iam_user_policy" "ci" {
         Effect = "Allow"
         Action = [
           "glue:GetDatabase", "glue:GetDatabases", "glue:CreateDatabase",
-          "glue:GetTable", "glue:GetTables", "glue:CreateTable", "glue:UpdateTable", "glue:DeleteTable",
+          "glue:GetTable", "glue:GetTables", "glue:GetTableVersion", "glue:GetTableVersions",
+          "glue:CreateTable", "glue:UpdateTable", "glue:DeleteTable",
           "glue:GetPartition", "glue:GetPartitions", "glue:BatchCreatePartition", "glue:CreatePartition", "glue:DeletePartition"
         ]
         Resource = "*"
