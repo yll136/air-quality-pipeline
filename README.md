@@ -23,47 +23,53 @@ tested automatically before it ships.
 
 **Live dashboard:** https://air-quality-pipeline-7cfdgxr7dgdowhrdts4myk.streamlit.app
 
+![Dashboard](docs/dashboard.png)
+
 *Interactive Streamlit dashboard reading live from Amazon Athena.*
 
 ---
 
 ## Why this project
 
-Most portfolio pipelines run on static or AI generated CSV files. This one runs
-on real, live data from two independent public sources and joins them together
-to answer a real question: does weather actually clear the air? Answering it
-means handling the messy reality of real data engineering: two sources on
-different schemas and units, sensors that go offline, duplicate records from
-overlapping collection windows, and timestamps that have to line up across
-sources before anything can be joined.
+Air quality is shaped by weather, but pollution and weather data live in
+separate systems that were never designed to be used together. This pipeline
+brings them into one place, joining hourly PM2.5 to local wind, temperature, and
+humidity for the same city and hour, so the relationship between them can
+actually be measured.
 
-It is also deliberately built on a different stack from my first project (which
-used GCP, BigQuery, and Dagster), to show breadth: a second cloud (AWS),
-infrastructure as code (Terraform), a serverless collector, a query-on-the-lake
-engine (Athena), and a real CI/CD setup.
+The substance is in the engineering. Working with two live public sources means
+reconciling different schemas and units, handling sensors that drop offline
+mid-collection, removing duplicate records created by overlapping collection
+windows, and aligning timestamps across sources before any join can be trusted.
+The whole pipeline runs unattended in the cloud on an hourly schedule and tests
+itself on every change, which is the standard a production pipeline is held to.
 
 ---
 
 ## Architecture
 
-```
-   OpenAQ / AirNow API  ─┐
-   (hourly PM2.5/NO2/O3)  │
-                          ├─► Lambda ─► S3 ──► Athena ──► dbt ──► Streamlit
-   Open-Meteo API ───────┘  (collector) (lake) (query)   (T)     (dashboard)
-   (hourly weather)              ▲
-                       EventBridge schedules the collector hourly
+```mermaid
+flowchart LR
+    subgraph sources[Live sources]
+        A["OpenAQ / AirNow<br/>PM2.5, NO2, O3"]
+        W["Open-Meteo<br/>weather"]
+    end
+
+    E["EventBridge<br/>hourly"] -. triggers .-> L["AWS Lambda<br/>Python collector"]
+    A --> L
+    W --> L
+    L --> S[("Amazon S3<br/>raw JSON, partitioned<br/>by date and hour")]
+    S --> AT["Amazon Athena<br/>external tables<br/>partition projection"]
+    AT --> D["dbt<br/>staging → marts<br/>+ data quality tests"]
+    D --> M[("mart_pm25_weather")]
+    M --> ST["Streamlit<br/>public dashboard"]
+    CI["GitHub Actions<br/>dbt build on every PR"] -. tests .-> D
 ```
 
 Everything runs in the cloud. The collector never touches a local machine.
 Infrastructure (S3, Lambda, EventBridge, IAM) is defined in Terraform, so the
-whole setup is reproducible from code.
-
-A layered dbt project turns raw JSON into insight:
-
-```
-sources (raw)  ─►  staging (stg_)  ─►  marts
-```
+whole setup is reproducible from code. A layered dbt project turns raw JSON into
+insight through `sources → staging → marts`.
 
 ---
 
