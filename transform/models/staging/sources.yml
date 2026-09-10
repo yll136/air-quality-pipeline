@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: raw
+    schema: airquality
+    tables:
+      - name: measurements_raw
+      - name: weather_raw

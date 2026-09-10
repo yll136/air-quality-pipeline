@@ -1,0 +1,21 @@
+version: 2
+models:
+  - name: stg_measurements
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - sensor_id
+              - measured_at
+    columns:
+      - name: sensor_id
+        tests:
+          - not_null
+      - name: measured_at
+        tests:
+          - not_null
+      - name: parameter
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['pm25', 'no2', 'o3']

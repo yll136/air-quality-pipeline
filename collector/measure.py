@@ -20,6 +20,7 @@ def fetch_hours(sensor_id, hours_back=6):
 
 def to_record(sensor, hour):
     return {
+        "metro":         sensor["metro"],
         "sensor_id":     sensor["sensor_id"],
         "location_id":   sensor["location_id"],
         "location_name": sensor["location_name"],

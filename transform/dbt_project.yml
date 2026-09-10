@@ -1,0 +1,9 @@
+name: 'airquality'
+version: '1.0.0'
+profile: 'airquality'
+
+model-paths: ["models"]
+
+models:
+  airquality:
+    +materialized: view

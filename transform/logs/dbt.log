@@ -1,0 +1,2130 @@
+[0m21:03:37.678923 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104b663c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1062be710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1062be990>]}
+
+
+============================== 21:03:37.710568 | 5c47cc72-d334-4453-80c9-4b01df300029 ==============================
+[0m21:03:37.710568 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:03:37.711033 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'no_print': 'None', 'warn_error': 'None', 'maximum_seed_size_mib': '1', 'debug': 'False', 'indirect_selection': 'eager', 'use_colors': 'True', 'log_cache_events': 'False', 'version_check': 'True', 'profiles_dir': '/Users/yllahmeti/.dbt', 'fail_fast': 'False', 'empty': 'None', 'static_parser': 'True', 'cache_selected_only': 'False', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt debug', 'write_json': 'True', 'partial_parse': 'True', 'printer_width': '80', 'log_path': '/Users/yllahmeti/projects/air-quality-pipeline/transform/logs', 'log_format': 'default', 'introspect': 'True', 'quiet': 'False', 'hints_enabled': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m21:03:37.762998 [info ] [MainThread]: dbt version: 1.12.4
+[0m21:03:37.763295 [info ] [MainThread]: python version: 3.14.4
+[0m21:03:37.763480 [info ] [MainThread]: python path: /Users/yllahmeti/projects/air-quality-pipeline/.venv/bin/python3
+[0m21:03:37.763628 [info ] [MainThread]: os info: macOS-15.6-arm64-arm-64bit-Mach-O
+[0m21:03:38.044880 [info ] [MainThread]: Using profiles dir at /Users/yllahmeti/.dbt
+[0m21:03:38.045277 [info ] [MainThread]: Using profiles.yml file at /Users/yllahmeti/.dbt/profiles.yml
+[0m21:03:38.045455 [info ] [MainThread]: Using dbt_project.yml file at /Users/yllahmeti/projects/air-quality-pipeline/transform/dbt_project.yml
+[0m21:03:38.045978 [info ] [MainThread]: adapter type: athena
+[0m21:03:38.046214 [info ] [MainThread]: adapter version: 1.11.1
+[0m21:03:38.111376 [info ] [MainThread]: Configuration:
+[0m21:03:38.111663 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:03:38.111835 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:03:38.111979 [info ] [MainThread]: Required dependencies:
+[0m21:03:38.112186 [debug] [MainThread]: Executing "git --help"
+[0m21:03:38.146718 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:03:38.147425 [debug] [MainThread]: STDERR: "b''"
+[0m21:03:38.147676 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:03:38.147886 [info ] [MainThread]: Connection:
+[0m21:03:38.148137 [info ] [MainThread]:   assume_role_arn: None
+[0m21:03:38.148286 [info ] [MainThread]:   assume_role_duration_seconds: 3600
+[0m21:03:38.148429 [info ] [MainThread]:   assume_role_external_id: None
+[0m21:03:38.148567 [info ] [MainThread]:   assume_role_session_name: dbt-athena
+[0m21:03:38.148705 [info ] [MainThread]:   aws_access_key_id: None
+[0m21:03:38.148849 [info ] [MainThread]:   aws_profile_name: None
+[0m21:03:38.148984 [info ] [MainThread]:   connection_manager: api
+[0m21:03:38.149114 [info ] [MainThread]:   database: awsdatacatalog
+[0m21:03:38.149258 [info ] [MainThread]:   debug_query_state: False
+[0m21:03:38.149384 [info ] [MainThread]:   endpoint_url: None
+[0m21:03:38.149515 [info ] [MainThread]:   lf_tags_database: None
+[0m21:03:38.149643 [info ] [MainThread]:   num_boto3_retries: None
+[0m21:03:38.149770 [info ] [MainThread]:   num_iceberg_retries: 3
+[0m21:03:38.149901 [info ] [MainThread]:   num_retries: 5
+[0m21:03:38.150031 [info ] [MainThread]:   poll_interval: 1.0
+[0m21:03:38.150161 [info ] [MainThread]:   region_name: eu-north-1
+[0m21:03:38.150288 [info ] [MainThread]:   s3_data_dir: s3://airquality-lake-338534047403/curated/
+[0m21:03:38.150415 [info ] [MainThread]:   s3_data_naming: schema_table_unique
+[0m21:03:38.150551 [info ] [MainThread]:   s3_staging_dir: s3://airquality-lake-338534047403/athena-results/
+[0m21:03:38.150677 [info ] [MainThread]:   s3_tmp_table_dir: None
+[0m21:03:38.150807 [info ] [MainThread]:   schema: airquality
+[0m21:03:38.150929 [info ] [MainThread]:   seed_s3_upload_args: None
+[0m21:03:38.151058 [info ] [MainThread]:   skip_workgroup_check: False
+[0m21:03:38.151181 [info ] [MainThread]:   spark_work_group: None
+[0m21:03:38.151307 [info ] [MainThread]:   work_group: None
+[0m21:03:38.151733 [info ] [MainThread]: Registered adapter: athena=1.11.1
+[0m21:03:38.219641 [debug] [MainThread]: Acquiring new athena connection 'debug'
+[0m21:03:38.220126 [debug] [MainThread]: Using athena connection "debug"
+[0m21:03:38.220300 [debug] [MainThread]: On debug: select 1 as id
+[0m21:03:38.220454 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:03:38.293839 [debug] [MainThread]: dbt.adapters.athena.constants adapter: Execute: select 1 as id
+[0m21:03:38.653458 [debug] [MainThread]: dbt.adapters.athena.constants adapter: Athena query ea5c489e-8095-4c54-b942-72169b9b5579 started
+[0m21:03:38.728731 [debug] [MainThread]: dbt.adapters.athena.constants adapter: Athena query ea5c489e-8095-4c54-b942-72169b9b5579 has state RUNNING
+[0m21:03:39.812571 [debug] [MainThread]: dbt.adapters.athena.constants adapter: Athena query ea5c489e-8095-4c54-b942-72169b9b5579 has state SUCCEEDED
+[0m21:03:39.967317 [debug] [MainThread]: SQL status: OK 0 in 1.747 seconds
+[0m21:03:39.969946 [debug] [MainThread]: On debug: No close available on handle
+[0m21:03:39.970558 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m21:03:39.971129 [info ] [MainThread]: [32mAll checks passed![0m
+[0m21:03:39.972018 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 2.3652642, "process_in_blocks": "0", "process_kernel_time": 0.276114, "process_mem_max_rss": "185843712", "process_out_blocks": "0", "process_user_time": 1.345242}
+[0m21:03:39.972870 [debug] [MainThread]: Command `dbt debug` succeeded at 21:03:39.972783 after 2.37 seconds
+[0m21:03:39.973165 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:03:39.974793 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078f6780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a67410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10704c8d0>]}
+[0m21:03:39.975356 [debug] [MainThread]: Flushing usage events
+[0m21:03:40.673115 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:05:08.637701 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104dba3c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106556710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106556990>]}
+
+
+============================== 21:05:08.641393 | e0317528-8310-4670-ace4-617397e8bc1d ==============================
+[0m21:05:08.641393 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:05:08.641825 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'log_format': 'default', 'partial_parse': 'True', 'empty': 'False', 'log_cache_events': 'False', 'version_check': 'True', 'static_parser': 'True', 'cache_selected_only': 'False', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'invocation_command': 'dbt run', 'log_path': '/Users/yllahmeti/projects/air-quality-pipeline/transform/logs', 'fail_fast': 'False', 'maximum_seed_size_mib': '1', 'use_experimental_parser': 'False', 'target_path': 'None', 'no_print': 'None', 'profiles_dir': '/Users/yllahmeti/.dbt', 'debug': 'False', 'quiet': 'False', 'hints_enabled': 'True', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'use_colors': 'True'}
+[0m21:05:08.994254 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e0317528-8310-4670-ace4-617397e8bc1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107a13e10>]}
+[0m21:05:09.034861 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e0317528-8310-4670-ace4-617397e8bc1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1061b7ce0>]}
+[0m21:05:09.035605 [info ] [MainThread]: Registered adapter: athena=1.11.1
+[0m21:05:09.107388 [debug] [MainThread]: checksum: a3d44465784138c057fdda31aa63af20de8edc9de24d7d56dac01e63aa67dbb9, vars: {}, profile: airquality, target: dev, version: 1.12.4
+[0m21:05:09.107981 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m21:05:09.108217 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'e0317528-8310-4670-ace4-617397e8bc1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107c70e50>]}
+[0m21:05:09.974052 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e0317528-8310-4670-ace4-617397e8bc1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1081ccd70>]}
+[0m21:05:10.031101 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:05:10.033892 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:05:10.070442 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:05:10.092894 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e0317528-8310-4670-ace4-617397e8bc1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109198670>]}
+[0m21:05:10.093267 [info ] [MainThread]: Found 1 model, 1 source, 505 macros
+[0m21:05:10.093487 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e0317528-8310-4670-ace4-617397e8bc1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10824c1f0>]}
+[0m21:05:10.094842 [info ] [MainThread]: 
+[0m21:05:10.095074 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:05:10.095232 [info ] [MainThread]: 
+[0m21:05:10.095607 [debug] [MainThread]: Acquiring new athena connection 'master'
+[0m21:05:10.096255 [debug] [ThreadPool]: Acquiring new athena connection 'list_awsdatacatalog'
+[0m21:05:10.096532 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:05:10.539692 [debug] [ThreadPool]: On list_awsdatacatalog: No close available on handle
+[0m21:05:10.541890 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_awsdatacatalog, now list_awsdatacatalog_airquality)
+[0m21:05:10.542234 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m21:05:11.293607 [debug] [ThreadPool]: On list_awsdatacatalog_airquality: No close available on handle
+[0m21:05:11.295109 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e0317528-8310-4670-ace4-617397e8bc1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ace5d0>]}
+[0m21:05:11.303669 [debug] [Thread-1 (]: Began running node model.airquality.stg_measurements
+[0m21:05:11.304358 [info ] [Thread-1 (]: 1 of 1 START sql view model airquality.stg_measurements ........................ [RUN]
+[0m21:05:11.305032 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_awsdatacatalog_airquality, now model.airquality.stg_measurements)
+[0m21:05:11.305330 [debug] [Thread-1 (]: Began compiling node model.airquality.stg_measurements
+[0m21:05:11.311214 [debug] [Thread-1 (]: Writing injected SQL for node "model.airquality.stg_measurements"
+[0m21:05:11.312279 [debug] [Thread-1 (]: Began executing node model.airquality.stg_measurements
+[0m21:05:11.330185 [debug] [Thread-1 (]: Writing runtime sql for node "model.airquality.stg_measurements"
+[0m21:05:11.330975 [debug] [Thread-1 (]: Using athena connection "model.airquality.stg_measurements"
+[0m21:05:11.331211 [debug] [Thread-1 (]: On model.airquality.stg_measurements: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_measurements"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_measurements"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."measurements_raw"
+),
+
+typed as (
+    select
+        sensor_id,
+        location_id,
+        location_name,
+        lat,
+        lon,
+        parameter,
+        units,
+        value,
+        from_iso8601_timestamp(hour_utc) as measured_at,
+        pct_complete,
+        dt
+    from source
+    where value is not null
+      and pct_complete >= 75
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by sensor_id, measured_at
+            order by pct_complete desc
+        ) as rn
+    from typed
+)
+
+select * from deduped where rn = 1
+
+[0m21:05:11.331427 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:05:11.379487 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_measurements"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_measurements"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."measurements_raw"
+),
+
+typed as (
+    select
+        sensor_id,
+        location_id,
+        location_name,
+        lat,
+        lon,
+        parameter,
+        units,
+        value,
+        from_iso8601_timestamp(hour_utc) as measured_at,
+        pct_complete,
+        dt
+    from source
+    where value is not null
+      and pct_complete >= 75
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by sensor_id, measured_at
+            order by pct_complete desc
+        ) as rn
+    from typed
+)
+
+select * from deduped where rn = 1
+[0m21:05:11.674929 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 8c70c57c-af8e-4244-b44b-28003efd575d started
+[0m21:05:11.748036 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 8c70c57c-af8e-4244-b44b-28003efd575d has state RUNNING
+[0m21:05:12.833629 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 8c70c57c-af8e-4244-b44b-28003efd575d has state FAILED
+[0m21:05:12.834910 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Error running SQL: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_measurements"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_measurements"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."measurements_raw"
+),
+
+typed as (
+    select
+        sensor_id,
+        location_id,
+        location_name,
+        lat,
+        lon,
+        parameter,
+        units,
+        value,
+        from_iso8601_timestamp(hour_utc) as measured_at,
+        pct_complete,
+        dt
+    from source
+    where value is not null
+      and pct_complete >= 75
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by sensor_id, measured_at
+            order by pct_complete desc
+        ) as rn
+    from typed
+)
+
+select * from deduped where rn = 1
+
+[0m21:05:12.835925 [debug] [Thread-1 (]: On model.airquality.stg_measurements: No close available on handle
+[0m21:05:12.846817 [debug] [Thread-1 (]: Runtime Error in model stg_measurements (models/staging/stg_measurements.sql)
+  Runtime Error
+    Invalid column type for column measured_at: Unsupported Hive type: timestamp(3) with time zone
+[0m21:05:12.848918 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e0317528-8310-4670-ace4-617397e8bc1d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1050eb070>]}
+[0m21:05:12.849443 [error] [Thread-1 (]: 1 of 1 ERROR creating sql view model airquality.stg_measurements ............... [[31mERROR[0m in 1.54s]
+[0m21:05:12.849847 [debug] [Thread-1 (]: Finished running node model.airquality.stg_measurements
+[0m21:05:12.850193 [debug] [Thread-7 (]: Marking all children of 'model.airquality.stg_measurements' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_measurements (models/staging/stg_measurements.sql)
+  Runtime Error
+    Invalid column type for column measured_at: Unsupported Hive type: timestamp(3) with time zone.
+[0m21:05:12.851704 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:05:12.851892 [debug] [MainThread]: Connection 'model.airquality.stg_measurements' was properly closed.
+[0m21:05:12.852065 [info ] [MainThread]: 
+[0m21:05:12.852242 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 2.76 seconds (2.76s).
+[0m21:05:12.852652 [debug] [MainThread]: Command end result
+[0m21:05:12.873682 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:05:12.875644 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:05:12.877333 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:05:12.882248 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/run_results.json
+[0m21:05:12.882429 [info ] [MainThread]: 
+[0m21:05:12.882646 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m21:05:12.882815 [info ] [MainThread]: 
+[0m21:05:12.883025 [error] [MainThread]: [[31mERROR[0m]: in model stg_measurements (models/staging/stg_measurements.sql)
+[0m21:05:12.883215 [error] [MainThread]:   Runtime Error in model stg_measurements (models/staging/stg_measurements.sql)
+  Runtime Error
+    Invalid column type for column measured_at: Unsupported Hive type: timestamp(3) with time zone
+[0m21:05:12.883362 [info ] [MainThread]: 
+[0m21:05:12.883534 [info ] [MainThread]:   compiled code at target/compiled/airquality/models/staging/stg_measurements.sql
+[0m21:05:12.883672 [info ] [MainThread]: 
+[0m21:05:12.883852 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 REUSED=0 TOTAL=1
+[0m21:05:12.884257 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 4.3102784, "process_in_blocks": "0", "process_kernel_time": 0.368743, "process_mem_max_rss": "236781568", "process_out_blocks": "0", "process_user_time": 2.520555}
+[0m21:05:12.884719 [debug] [MainThread]: Command `dbt run` failed at 21:05:12.884658 after 4.31 seconds
+[0m21:05:12.884958 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10873f9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce44d40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10915c3d0>]}
+[0m21:05:12.885159 [debug] [MainThread]: Flushing usage events
+[0m21:05:13.567506 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:05:51.977442 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108d7a3c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a516710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a516990>]}
+
+
+============================== 21:05:51.981919 | abdec899-b615-4ca7-8602-fa1f9e8d7021 ==============================
+[0m21:05:51.981919 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:05:51.982370 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'static_parser': 'True', 'indirect_selection': 'eager', 'target_path': 'None', 'warn_error': 'None', 'no_print': 'None', 'version_check': 'True', 'cache_selected_only': 'False', 'hints_enabled': 'True', 'use_colors': 'True', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'printer_width': '80', 'write_json': 'True', 'profiles_dir': '/Users/yllahmeti/.dbt', 'log_cache_events': 'False', 'maximum_seed_size_mib': '1', 'invocation_command': 'dbt run', 'quiet': 'False', 'use_experimental_parser': 'False', 'empty': 'False', 'introspect': 'True', 'log_path': '/Users/yllahmeti/projects/air-quality-pipeline/transform/logs'}
+[0m21:05:52.359492 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'abdec899-b615-4ca7-8602-fa1f9e8d7021', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b9d3e10>]}
+[0m21:05:52.399957 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'abdec899-b615-4ca7-8602-fa1f9e8d7021', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a177ce0>]}
+[0m21:05:52.400834 [info ] [MainThread]: Registered adapter: athena=1.11.1
+[0m21:05:52.481084 [debug] [MainThread]: checksum: a3d44465784138c057fdda31aa63af20de8edc9de24d7d56dac01e63aa67dbb9, vars: {}, profile: airquality, target: dev, version: 1.12.4
+[0m21:05:52.578705 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m21:05:52.579146 [debug] [MainThread]: Partial parsing: updated file: airquality://models/staging/stg_measurements.sql
+[0m21:05:52.756236 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'abdec899-b615-4ca7-8602-fa1f9e8d7021', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c221050>]}
+[0m21:05:52.818073 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:05:52.820730 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:05:52.834604 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:05:52.841568 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'abdec899-b615-4ca7-8602-fa1f9e8d7021', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c58d8b0>]}
+[0m21:05:52.841894 [info ] [MainThread]: Found 1 model, 1 source, 505 macros
+[0m21:05:52.842113 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'abdec899-b615-4ca7-8602-fa1f9e8d7021', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c5c9710>]}
+[0m21:05:52.843412 [info ] [MainThread]: 
+[0m21:05:52.843635 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:05:52.843783 [info ] [MainThread]: 
+[0m21:05:52.844136 [debug] [MainThread]: Acquiring new athena connection 'master'
+[0m21:05:52.844749 [debug] [ThreadPool]: Acquiring new athena connection 'list_awsdatacatalog'
+[0m21:05:52.845019 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:05:53.210194 [debug] [ThreadPool]: On list_awsdatacatalog: No close available on handle
+[0m21:05:53.212443 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_awsdatacatalog, now list_awsdatacatalog_airquality)
+[0m21:05:53.212922 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m21:05:53.751869 [debug] [ThreadPool]: On list_awsdatacatalog_airquality: No close available on handle
+[0m21:05:53.753390 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'abdec899-b615-4ca7-8602-fa1f9e8d7021', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c565d90>]}
+[0m21:05:53.757969 [debug] [Thread-1 (]: Began running node model.airquality.stg_measurements
+[0m21:05:53.758602 [info ] [Thread-1 (]: 1 of 1 START sql view model airquality.stg_measurements ........................ [RUN]
+[0m21:05:53.759204 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_awsdatacatalog_airquality, now model.airquality.stg_measurements)
+[0m21:05:53.759483 [debug] [Thread-1 (]: Began compiling node model.airquality.stg_measurements
+[0m21:05:53.766035 [debug] [Thread-1 (]: Writing injected SQL for node "model.airquality.stg_measurements"
+[0m21:05:53.766766 [debug] [Thread-1 (]: Began executing node model.airquality.stg_measurements
+[0m21:05:53.785540 [debug] [Thread-1 (]: Writing runtime sql for node "model.airquality.stg_measurements"
+[0m21:05:53.786084 [debug] [Thread-1 (]: Using athena connection "model.airquality.stg_measurements"
+[0m21:05:53.786312 [debug] [Thread-1 (]: On model.airquality.stg_measurements: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_measurements"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_measurements"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."measurements_raw"
+),
+
+typed as (
+    select
+        sensor_id,
+        location_id,
+        location_name,
+        lat,
+        lon,
+        parameter,
+        units,
+        value,
+        cast(from_iso8601_timestamp(hour_utc) as timestamp) as measured_at,
+        pct_complete,
+        dt
+    from source
+    where value is not null
+      and pct_complete >= 75
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by sensor_id, measured_at
+            order by pct_complete desc
+        ) as rn
+    from typed
+)
+
+select * from deduped where rn = 1
+
+[0m21:05:53.786545 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:05:53.861410 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_measurements"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_measurements"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."measurements_raw"
+),
+
+typed as (
+    select
+        sensor_id,
+        location_id,
+        location_name,
+        lat,
+        lon,
+        parameter,
+        units,
+        value,
+        cast(from_iso8601_timestamp(hour_utc) as timestamp) as measured_at,
+        pct_complete,
+        dt
+    from source
+    where value is not null
+      and pct_complete >= 75
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by sensor_id, measured_at
+            order by pct_complete desc
+        ) as rn
+    from typed
+)
+
+select * from deduped where rn = 1
+[0m21:05:54.133246 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 65d23253-3e33-42f5-9bcd-8476a42d4015 started
+[0m21:05:54.240423 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 65d23253-3e33-42f5-9bcd-8476a42d4015 has state RUNNING
+[0m21:05:55.358899 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 65d23253-3e33-42f5-9bcd-8476a42d4015 has state SUCCEEDED
+[0m21:05:55.476243 [debug] [Thread-1 (]: SQL status: OK -1 in 1.689 seconds
+[0m21:05:55.773263 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Total table versions: ['0']
+[0m21:05:55.776175 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Versions to delete: []
+[0m21:05:55.788582 [debug] [Thread-1 (]: On model.airquality.stg_measurements: No close available on handle
+[0m21:05:55.790927 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'abdec899-b615-4ca7-8602-fa1f9e8d7021', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11882c710>]}
+[0m21:05:55.791419 [info ] [Thread-1 (]: 1 of 1 OK created sql view model airquality.stg_measurements ................... [[32mOK -1[0m in 2.03s]
+[0m21:05:55.791807 [debug] [Thread-1 (]: Finished running node model.airquality.stg_measurements
+[0m21:05:55.792985 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:05:55.793239 [debug] [MainThread]: Connection 'model.airquality.stg_measurements' was properly closed.
+[0m21:05:55.794173 [info ] [MainThread]: 
+[0m21:05:55.794419 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 2.95 seconds (2.95s).
+[0m21:05:55.794917 [debug] [MainThread]: Command end result
+[0m21:05:55.816504 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:05:55.818567 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:05:55.820321 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:05:55.825323 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/run_results.json
+[0m21:05:55.825495 [info ] [MainThread]: 
+[0m21:05:55.825731 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:05:55.825886 [info ] [MainThread]: 
+[0m21:05:55.826072 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=1
+[0m21:05:55.826521 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 3.9168923, "process_in_blocks": "0", "process_kernel_time": 0.384879, "process_mem_max_rss": "228163584", "process_out_blocks": "0", "process_user_time": 1.960299}
+[0m21:05:55.826946 [debug] [MainThread]: Command `dbt run` succeeded at 21:05:55.826889 after 3.92 seconds
+[0m21:05:55.827199 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c1e4cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bf72f30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11890ae90>]}
+[0m21:05:55.827405 [debug] [MainThread]: Flushing usage events
+[0m21:05:56.384433 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:07:26.296763 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1043aa3c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107046710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107046990>]}
+
+
+============================== 21:07:26.301194 | f5997a23-019d-49f0-8e82-1bc545b5df27 ==============================
+[0m21:07:26.301194 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:07:26.301652 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'version_check': 'True', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'use_colors': 'True', 'indirect_selection': 'eager', 'introspect': 'True', 'debug': 'False', 'log_path': '/Users/yllahmeti/projects/air-quality-pipeline/transform/logs', 'empty': 'None', 'warn_error': 'None', 'log_format': 'default', 'write_json': 'True', 'hints_enabled': 'True', 'quiet': 'False', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt deps', 'maximum_seed_size_mib': '1', 'static_parser': 'True', 'profiles_dir': '/Users/yllahmeti/.dbt', 'fail_fast': 'False', 'partial_parse': 'True', 'no_print': 'None'}
+[0m21:07:26.396974 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f5997a23-019d-49f0-8e82-1bc545b5df27', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107264e90>]}
+[0m21:07:26.434041 [debug] [MainThread]: Set downloads directory='/var/folders/6_/j71mhrxj1d33vzgf76_ym1lr0000gn/T/dbt-downloads-59kq9dov'
+[0m21:07:26.434618 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m21:07:26.689103 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m21:07:26.691546 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m21:07:27.227525 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m21:07:27.253283 [info ] [MainThread]: Updating lock file in file path: /Users/yllahmeti/projects/air-quality-pipeline/transform/package-lock.yml
+[0m21:07:27.256501 [debug] [MainThread]: Set downloads directory='/var/folders/6_/j71mhrxj1d33vzgf76_ym1lr0000gn/T/dbt-downloads-oyod3yi8'
+[0m21:07:27.259648 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m21:07:27.960049 [info ] [MainThread]: Installed from version 1.4.1
+[0m21:07:27.960410 [info ] [MainThread]: Up to date!
+[0m21:07:27.960684 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'f5997a23-019d-49f0-8e82-1bc545b5df27', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1073e49e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1073e48d0>]}
+[0m21:07:27.961859 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 1.7355876, "process_in_blocks": "0", "process_kernel_time": 0.23969, "process_mem_max_rss": "135249920", "process_out_blocks": "0", "process_user_time": 1.155577}
+[0m21:07:27.962256 [debug] [MainThread]: Command `dbt deps` succeeded at 21:07:27.962169 after 1.74 seconds
+[0m21:07:27.962540 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1073e2c50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1073868a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1072a5d60>]}
+[0m21:07:27.962749 [debug] [MainThread]: Flushing usage events
+[0m21:07:28.644518 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:07:52.511792 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1084563c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109bf6710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109bf6990>]}
+
+
+============================== 21:07:52.515623 | 19e260b6-11be-4893-a679-e6bbcea8ca7a ==============================
+[0m21:07:52.515623 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:07:52.516085 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'maximum_seed_size_mib': '1', 'write_json': 'True', 'log_format': 'default', 'no_print': 'None', 'empty': 'None', 'printer_width': '80', 'warn_error': 'None', 'introspect': 'True', 'use_colors': 'True', 'version_check': 'True', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'target_path': 'None', 'use_experimental_parser': 'False', 'hints_enabled': 'True', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt test', 'partial_parse': 'True', 'quiet': 'False', 'log_cache_events': 'False', 'static_parser': 'True', 'log_path': '/Users/yllahmeti/projects/air-quality-pipeline/transform/logs', 'profiles_dir': '/Users/yllahmeti/.dbt'}
+[0m21:07:52.919233 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '19e260b6-11be-4893-a679-e6bbcea8ca7a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b98c050>]}
+[0m21:07:52.960322 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '19e260b6-11be-4893-a679-e6bbcea8ca7a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ac6b680>]}
+[0m21:07:52.962048 [info ] [MainThread]: Registered adapter: athena=1.11.1
+[0m21:07:53.040808 [debug] [MainThread]: checksum: a3d44465784138c057fdda31aa63af20de8edc9de24d7d56dac01e63aa67dbb9, vars: {}, profile: airquality, target: dev, version: 1.12.4
+[0m21:07:53.102452 [info ] [MainThread]: Unable to do partial parsing because a project dependency has been added
+[0m21:07:53.102818 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '19e260b6-11be-4893-a679-e6bbcea8ca7a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be64b50>]}
+[0m21:07:54.121162 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on
+'stg_measurements' in package 'airquality'
+(models/staging/stg_measurements.yml). Arguments to generic tests should be
+nested under the `arguments` property.
+[0m21:07:54.121669 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '19e260b6-11be-4893-a679-e6bbcea8ca7a', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bda8aa0>]}
+[0m21:07:54.312274 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '19e260b6-11be-4893-a679-e6bbcea8ca7a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cc4d2b0>]}
+[0m21:07:54.388833 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:07:54.391775 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:07:54.405766 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:07:54.518747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '19e260b6-11be-4893-a679-e6bbcea8ca7a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bda7520>]}
+[0m21:07:54.519203 [info ] [MainThread]: Found 1 model, 4 data tests, 1 source, 621 macros
+[0m21:07:54.519416 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '19e260b6-11be-4893-a679-e6bbcea8ca7a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cf61010>]}
+[0m21:07:54.520926 [info ] [MainThread]: 
+[0m21:07:54.521158 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:07:54.521314 [info ] [MainThread]: 
+[0m21:07:54.521668 [debug] [MainThread]: Acquiring new athena connection 'master'
+[0m21:07:54.522351 [debug] [ThreadPool]: Acquiring new athena connection 'list_awsdatacatalog_airquality'
+[0m21:07:54.522596 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:07:55.224937 [debug] [ThreadPool]: On list_awsdatacatalog_airquality: No close available on handle
+[0m21:07:55.226875 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '19e260b6-11be-4893-a679-e6bbcea8ca7a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d593070>]}
+[0m21:07:55.231036 [debug] [Thread-3 (]: Began running node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:07:55.231377 [debug] [Thread-1 (]: Began running node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:07:55.232761 [info ] [Thread-1 (]: 1 of 4 START test accepted_values_stg_measurements_parameter__pm25__no2__o3 .... [RUN]
+[0m21:07:55.231820 [debug] [Thread-2 (]: Began running node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:07:55.232099 [info ] [Thread-3 (]: 3 of 4 START test not_null_stg_measurements_measured_at ........................ [RUN]
+[0m21:07:55.231604 [debug] [Thread-4 (]: Began running node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:07:55.234492 [info ] [Thread-4 (]: 4 of 4 START test not_null_stg_measurements_sensor_id .......................... [RUN]
+[0m21:07:55.234876 [debug] [Thread-4 (]: Acquiring new athena connection 'test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c'
+[0m21:07:55.235144 [debug] [Thread-4 (]: Began compiling node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:07:55.233376 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_awsdatacatalog_airquality, now test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e)
+[0m21:07:55.233742 [info ] [Thread-2 (]: 2 of 4 START test dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at  [RUN]
+[0m21:07:55.234198 [debug] [Thread-3 (]: Acquiring new athena connection 'test.airquality.not_null_stg_measurements_measured_at.659f396a10'
+[0m21:07:55.247778 [debug] [Thread-3 (]: Began compiling node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:07:55.251653 [debug] [Thread-3 (]: Writing injected SQL for node "test.airquality.not_null_stg_measurements_measured_at.659f396a10"
+[0m21:07:55.247569 [debug] [Thread-2 (]: Acquiring new athena connection 'test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f'
+[0m21:07:55.246945 [debug] [Thread-4 (]: Writing injected SQL for node "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"
+[0m21:07:55.247231 [debug] [Thread-1 (]: Began compiling node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:07:55.255909 [debug] [Thread-1 (]: Writing injected SQL for node "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"
+[0m21:07:55.251998 [debug] [Thread-2 (]: Began compiling node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:07:55.260137 [debug] [Thread-2 (]: Writing injected SQL for node "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"
+[0m21:07:55.256295 [debug] [Thread-3 (]: Began executing node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:07:55.267771 [debug] [Thread-4 (]: Began executing node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:07:55.276409 [debug] [Thread-4 (]: Writing runtime sql for node "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"
+[0m21:07:55.276677 [debug] [Thread-2 (]: Began executing node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:07:55.278647 [debug] [Thread-2 (]: Writing runtime sql for node "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"
+[0m21:07:55.277630 [debug] [Thread-3 (]: Writing runtime sql for node "test.airquality.not_null_stg_measurements_measured_at.659f396a10"
+[0m21:07:55.276883 [debug] [Thread-1 (]: Began executing node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:07:55.279885 [debug] [Thread-1 (]: Writing runtime sql for node "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"
+[0m21:07:55.280434 [debug] [Thread-3 (]: Using athena connection "test.airquality.not_null_stg_measurements_measured_at.659f396a10"
+[0m21:07:55.280659 [debug] [Thread-3 (]: On test.airquality.not_null_stg_measurements_measured_at.659f396a10: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_measured_at.659f396a10"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select measured_at
+from "awsdatacatalog"."airquality"."stg_measurements"
+where measured_at is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:07:55.281149 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m21:07:55.280919 [debug] [Thread-2 (]: Using athena connection "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"
+[0m21:07:55.285869 [debug] [Thread-2 (]: On test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+
+
+
+
+with validation_errors as (
+
+    select
+        sensor_id, measured_at
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    group by sensor_id, measured_at
+    having count(*) > 1
+
+)
+
+select *
+from validation_errors
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:07:55.286082 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m21:07:55.285420 [debug] [Thread-4 (]: Using athena connection "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"
+[0m21:07:55.285641 [debug] [Thread-1 (]: Using athena connection "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"
+[0m21:07:55.290435 [debug] [Thread-1 (]: On test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        parameter as value_field,
+        count(*) as n_records
+
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    group by parameter
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'pm25','no2','o3'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:07:55.290741 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:07:55.290060 [debug] [Thread-4 (]: On test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sensor_id
+from "awsdatacatalog"."airquality"."stg_measurements"
+where sensor_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:07:55.295290 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m21:07:55.460711 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sensor_id
+from "awsdatacatalog"."airquality"."stg_measurements"
+where sensor_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:07:55.464932 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+
+
+
+
+with validation_errors as (
+select
+        sensor_id, measured_at
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    group by sensor_id, measured_at
+    having count(*) > 1
+
+)
+
+select *
+from validation_errors
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:07:55.469033 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+select
+        parameter as value_field,
+        count(*) as n_records
+from "awsdatacatalog"."airquality"."stg_measurements"
+    group by parameter
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'pm25','no2','o3'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:07:55.469743 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_measured_at.659f396a10"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select measured_at
+from "awsdatacatalog"."airquality"."stg_measurements"
+where measured_at is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:07:55.817171 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Athena query 9d99c04b-e15f-4e14-8c88-de7513c3bdd7 started
+[0m21:07:55.886213 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 07e717f5-f1c1-48c5-907f-16301f164508 started
+[0m21:07:55.893502 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 3953f2d8-2700-4b18-b5a5-63a91d80e132 started
+[0m21:07:55.909261 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Athena query 9d99c04b-e15f-4e14-8c88-de7513c3bdd7 has state QUEUED
+[0m21:07:55.971809 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 07e717f5-f1c1-48c5-907f-16301f164508 has state QUEUED
+[0m21:07:55.973308 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 3953f2d8-2700-4b18-b5a5-63a91d80e132 has state QUEUED
+[0m21:07:56.141437 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query 1340278a-8922-4e5b-abd2-4465f2207061 started
+[0m21:07:56.221108 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query 1340278a-8922-4e5b-abd2-4465f2207061 has state QUEUED
+[0m21:07:56.995515 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Athena query 9d99c04b-e15f-4e14-8c88-de7513c3bdd7 has state SUCCEEDED
+[0m21:07:57.056802 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 3953f2d8-2700-4b18-b5a5-63a91d80e132 has state SUCCEEDED
+[0m21:07:57.059027 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 07e717f5-f1c1-48c5-907f-16301f164508 has state SUCCEEDED
+[0m21:07:57.128024 [debug] [Thread-4 (]: SQL status: OK 0 in 1.832 seconds
+[0m21:07:57.135136 [debug] [Thread-4 (]: On test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c: No close available on handle
+[0m21:07:57.136081 [info ] [Thread-4 (]: 4 of 4 PASS not_null_stg_measurements_sensor_id ................................ [[32mPASS[0m in 1.90s]
+[0m21:07:57.136731 [debug] [Thread-4 (]: Finished running node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:07:57.198989 [debug] [Thread-3 (]: SQL status: OK 0 in 1.918 seconds
+[0m21:07:57.201092 [debug] [Thread-3 (]: On test.airquality.not_null_stg_measurements_measured_at.659f396a10: No close available on handle
+[0m21:07:57.201833 [info ] [Thread-3 (]: 3 of 4 PASS not_null_stg_measurements_measured_at .............................. [[32mPASS[0m in 1.97s]
+[0m21:07:57.202338 [debug] [Thread-3 (]: Finished running node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:07:57.211985 [debug] [Thread-1 (]: SQL status: OK 0 in 1.921 seconds
+[0m21:07:57.213299 [debug] [Thread-1 (]: On test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e: No close available on handle
+[0m21:07:57.213791 [info ] [Thread-1 (]: 1 of 4 PASS accepted_values_stg_measurements_parameter__pm25__no2__o3 .......... [[32mPASS[0m in 1.98s]
+[0m21:07:57.214211 [debug] [Thread-1 (]: Finished running node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:07:57.304822 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query 1340278a-8922-4e5b-abd2-4465f2207061 has state SUCCEEDED
+[0m21:07:57.444531 [debug] [Thread-2 (]: SQL status: OK 0 in 2.158 seconds
+[0m21:07:57.447887 [debug] [Thread-2 (]: On test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f: No close available on handle
+[0m21:07:57.449114 [info ] [Thread-2 (]: 2 of 4 PASS dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at  [[32mPASS[0m in 2.20s]
+[0m21:07:57.449924 [debug] [Thread-2 (]: Finished running node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:07:57.451875 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:07:57.452227 [debug] [MainThread]: Connection 'test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e' was properly closed.
+[0m21:07:57.452437 [debug] [MainThread]: Connection 'test.airquality.not_null_stg_measurements_measured_at.659f396a10' was properly closed.
+[0m21:07:57.452626 [debug] [MainThread]: Connection 'test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c' was properly closed.
+[0m21:07:57.452807 [debug] [MainThread]: Connection 'test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f' was properly closed.
+[0m21:07:57.458091 [info ] [MainThread]: 
+[0m21:07:57.458581 [info ] [MainThread]: Finished running 4 data tests in 0 hours 0 minutes and 2.94 seconds (2.94s).
+[0m21:07:57.459700 [debug] [MainThread]: Command end result
+[0m21:07:57.493234 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:07:57.495215 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:07:57.496895 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:07:57.502216 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/run_results.json
+[0m21:07:57.502404 [info ] [MainThread]: 
+[0m21:07:57.502625 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:07:57.502787 [info ] [MainThread]: 
+[0m21:07:57.502977 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=4
+[0m21:07:57.503303 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m21:07:57.503724 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 5.0551386, "process_in_blocks": "0", "process_kernel_time": 0.537156, "process_mem_max_rss": "285966336", "process_out_blocks": "0", "process_user_time": 3.126928}
+[0m21:07:57.504134 [debug] [MainThread]: Command `dbt test` succeeded at 21:07:57.504077 after 5.06 seconds
+[0m21:07:57.504360 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fd436b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112d48830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d5cccd0>]}
+[0m21:07:57.504564 [debug] [MainThread]: Flushing usage events
+[0m21:07:58.077893 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:08:41.716792 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106a8e3c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10822a710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10822a990>]}
+
+
+============================== 21:08:41.721570 | 096ccdc9-3de4-493b-b4c1-f1c4e1d5cb9d ==============================
+[0m21:08:41.721570 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:08:41.722020 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'cache_selected_only': 'False', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'use_colors': 'True', 'maximum_seed_size_mib': '1', 'no_print': 'None', 'invocation_command': 'dbt test', 'empty': 'None', 'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'target_path': 'None', 'introspect': 'True', 'fail_fast': 'False', 'profiles_dir': '/Users/yllahmeti/.dbt', 'warn_error': 'None', 'partial_parse': 'True', 'hints_enabled': 'True', 'log_format': 'default', 'write_json': 'True', 'static_parser': 'True', 'quiet': 'False', 'use_experimental_parser': 'False', 'log_path': '/Users/yllahmeti/projects/air-quality-pipeline/transform/logs'}
+[0m21:08:42.140128 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '096ccdc9-3de4-493b-b4c1-f1c4e1d5cb9d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109a24050>]}
+[0m21:08:42.181269 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '096ccdc9-3de4-493b-b4c1-f1c4e1d5cb9d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f03680>]}
+[0m21:08:42.182125 [info ] [MainThread]: Registered adapter: athena=1.11.1
+[0m21:08:42.263627 [debug] [MainThread]: checksum: a3d44465784138c057fdda31aa63af20de8edc9de24d7d56dac01e63aa67dbb9, vars: {}, profile: airquality, target: dev, version: 1.12.4
+[0m21:08:42.388055 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m21:08:42.388702 [debug] [MainThread]: Partial parsing: updated file: airquality://models/staging/stg_measurements.yml
+[0m21:08:42.806243 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '096ccdc9-3de4-493b-b4c1-f1c4e1d5cb9d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109944750>]}
+[0m21:08:42.882848 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:08:42.885709 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:08:42.901050 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:08:42.916305 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '096ccdc9-3de4-493b-b4c1-f1c4e1d5cb9d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109d6ea80>]}
+[0m21:08:42.916696 [info ] [MainThread]: Found 1 model, 4 data tests, 1 source, 621 macros
+[0m21:08:42.916921 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '096ccdc9-3de4-493b-b4c1-f1c4e1d5cb9d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a39c750>]}
+[0m21:08:42.918446 [info ] [MainThread]: 
+[0m21:08:42.918678 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:08:42.918840 [info ] [MainThread]: 
+[0m21:08:42.919217 [debug] [MainThread]: Acquiring new athena connection 'master'
+[0m21:08:42.919903 [debug] [ThreadPool]: Acquiring new athena connection 'list_awsdatacatalog_airquality'
+[0m21:08:42.920173 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:08:43.696731 [debug] [ThreadPool]: On list_awsdatacatalog_airquality: No close available on handle
+[0m21:08:43.697916 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '096ccdc9-3de4-493b-b4c1-f1c4e1d5cb9d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f4bad0>]}
+[0m21:08:43.701352 [debug] [Thread-2 (]: Began running node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:08:43.701735 [debug] [Thread-3 (]: Began running node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:08:43.702925 [info ] [Thread-3 (]: 3 of 4 START test not_null_stg_measurements_measured_at ........................ [RUN]
+[0m21:08:43.703372 [debug] [Thread-3 (]: Acquiring new athena connection 'test.airquality.not_null_stg_measurements_measured_at.659f396a10'
+[0m21:08:43.703665 [debug] [Thread-3 (]: Began compiling node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:08:43.701989 [debug] [Thread-1 (]: Began running node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:08:43.702334 [debug] [Thread-4 (]: Began running node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:08:43.702600 [info ] [Thread-2 (]: 2 of 4 START test dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at  [RUN]
+[0m21:08:43.729006 [debug] [Thread-2 (]: Acquiring new athena connection 'test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f'
+[0m21:08:43.729235 [debug] [Thread-2 (]: Began compiling node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:08:43.733591 [debug] [Thread-2 (]: Writing injected SQL for node "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"
+[0m21:08:43.727878 [debug] [Thread-3 (]: Writing injected SQL for node "test.airquality.not_null_stg_measurements_measured_at.659f396a10"
+[0m21:08:43.728269 [info ] [Thread-1 (]: 1 of 4 START test accepted_values_stg_measurements_parameter__pm25__no2__o3 .... [RUN]
+[0m21:08:43.728572 [info ] [Thread-4 (]: 4 of 4 START test not_null_stg_measurements_sensor_id .......................... [RUN]
+[0m21:08:43.734517 [debug] [Thread-4 (]: Acquiring new athena connection 'test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c'
+[0m21:08:43.734753 [debug] [Thread-4 (]: Began compiling node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:08:43.738629 [debug] [Thread-4 (]: Writing injected SQL for node "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"
+[0m21:08:43.734137 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_awsdatacatalog_airquality, now test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e)
+[0m21:08:43.739004 [debug] [Thread-1 (]: Began compiling node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:08:43.743097 [debug] [Thread-1 (]: Writing injected SQL for node "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"
+[0m21:08:43.739354 [debug] [Thread-2 (]: Began executing node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:08:43.751334 [debug] [Thread-3 (]: Began executing node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:08:43.751610 [debug] [Thread-4 (]: Began executing node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:08:43.758698 [debug] [Thread-2 (]: Writing runtime sql for node "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"
+[0m21:08:43.759763 [debug] [Thread-3 (]: Writing runtime sql for node "test.airquality.not_null_stg_measurements_measured_at.659f396a10"
+[0m21:08:43.760684 [debug] [Thread-4 (]: Writing runtime sql for node "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"
+[0m21:08:43.760911 [debug] [Thread-1 (]: Began executing node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:08:43.762137 [debug] [Thread-1 (]: Writing runtime sql for node "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"
+[0m21:08:43.762502 [debug] [Thread-2 (]: Using athena connection "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"
+[0m21:08:43.762738 [debug] [Thread-2 (]: On test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+
+
+
+
+with validation_errors as (
+
+    select
+        sensor_id, measured_at
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    group by sensor_id, measured_at
+    having count(*) > 1
+
+)
+
+select *
+from validation_errors
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:08:43.762971 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m21:08:43.767584 [debug] [Thread-3 (]: Using athena connection "test.airquality.not_null_stg_measurements_measured_at.659f396a10"
+[0m21:08:43.767825 [debug] [Thread-3 (]: On test.airquality.not_null_stg_measurements_measured_at.659f396a10: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_measured_at.659f396a10"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select measured_at
+from "awsdatacatalog"."airquality"."stg_measurements"
+where measured_at is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:08:43.768023 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m21:08:43.768302 [debug] [Thread-1 (]: Using athena connection "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"
+[0m21:08:43.763205 [debug] [Thread-4 (]: Using athena connection "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"
+[0m21:08:43.772862 [debug] [Thread-4 (]: On test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sensor_id
+from "awsdatacatalog"."airquality"."stg_measurements"
+where sensor_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:08:43.773070 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m21:08:43.772470 [debug] [Thread-1 (]: On test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        parameter as value_field,
+        count(*) as n_records
+
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    group by parameter
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'pm25','no2','o3'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:08:43.776955 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:08:43.959274 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_measured_at.659f396a10"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select measured_at
+from "awsdatacatalog"."airquality"."stg_measurements"
+where measured_at is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:08:43.962701 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sensor_id
+from "awsdatacatalog"."airquality"."stg_measurements"
+where sensor_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:08:43.965585 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+select
+        parameter as value_field,
+        count(*) as n_records
+from "awsdatacatalog"."airquality"."stg_measurements"
+    group by parameter
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'pm25','no2','o3'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:08:43.970624 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+
+
+
+
+with validation_errors as (
+select
+        sensor_id, measured_at
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    group by sensor_id, measured_at
+    having count(*) > 1
+
+)
+
+select *
+from validation_errors
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:08:44.222690 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query ba680409-ac91-44b8-b4c4-b44a335e197b started
+[0m21:08:44.302928 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query ba680409-ac91-44b8-b4c4-b44a335e197b has state QUEUED
+[0m21:08:44.335233 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query a91614ec-669b-4fae-9b28-889931a81bf8 started
+[0m21:08:44.411694 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query a91614ec-669b-4fae-9b28-889931a81bf8 has state QUEUED
+[0m21:08:44.457317 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 96f83f70-1130-4d16-99a8-c25b7b9d0667 started
+[0m21:08:44.538600 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 96f83f70-1130-4d16-99a8-c25b7b9d0667 has state QUEUED
+[0m21:08:44.587377 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Athena query ec694f5e-a14a-4824-ad88-c607018c1e82 started
+[0m21:08:44.689145 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Athena query ec694f5e-a14a-4824-ad88-c607018c1e82 has state QUEUED
+[0m21:08:45.387852 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query ba680409-ac91-44b8-b4c4-b44a335e197b has state RUNNING
+[0m21:08:45.495245 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query a91614ec-669b-4fae-9b28-889931a81bf8 has state SUCCEEDED
+[0m21:08:45.618038 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 96f83f70-1130-4d16-99a8-c25b7b9d0667 has state SUCCEEDED
+[0m21:08:45.636921 [debug] [Thread-2 (]: SQL status: OK 0 in 1.874 seconds
+[0m21:08:45.644302 [debug] [Thread-2 (]: On test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f: No close available on handle
+[0m21:08:45.645238 [info ] [Thread-2 (]: 2 of 4 PASS dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at  [[32mPASS[0m in 1.92s]
+[0m21:08:45.645843 [debug] [Thread-2 (]: Finished running node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:08:45.769369 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Athena query ec694f5e-a14a-4824-ad88-c607018c1e82 has state SUCCEEDED
+[0m21:08:45.771277 [debug] [Thread-1 (]: SQL status: OK 0 in 1.994 seconds
+[0m21:08:45.774913 [debug] [Thread-1 (]: On test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e: No close available on handle
+[0m21:08:45.775642 [info ] [Thread-1 (]: 1 of 4 PASS accepted_values_stg_measurements_parameter__pm25__no2__o3 .......... [[32mPASS[0m in 2.04s]
+[0m21:08:45.776431 [debug] [Thread-1 (]: Finished running node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:08:45.915534 [debug] [Thread-4 (]: SQL status: OK 0 in 2.142 seconds
+[0m21:08:45.918814 [debug] [Thread-4 (]: On test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c: No close available on handle
+[0m21:08:45.919964 [info ] [Thread-4 (]: 4 of 4 PASS not_null_stg_measurements_sensor_id ................................ [[32mPASS[0m in 2.19s]
+[0m21:08:45.920542 [debug] [Thread-4 (]: Finished running node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:08:46.474282 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query ba680409-ac91-44b8-b4c4-b44a335e197b has state SUCCEEDED
+[0m21:08:46.626885 [debug] [Thread-3 (]: SQL status: OK 0 in 2.859 seconds
+[0m21:08:46.630116 [debug] [Thread-3 (]: On test.airquality.not_null_stg_measurements_measured_at.659f396a10: No close available on handle
+[0m21:08:46.631183 [info ] [Thread-3 (]: 3 of 4 PASS not_null_stg_measurements_measured_at .............................. [[32mPASS[0m in 2.93s]
+[0m21:08:46.631705 [debug] [Thread-3 (]: Finished running node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:08:46.633695 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:08:46.634050 [debug] [MainThread]: Connection 'test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e' was properly closed.
+[0m21:08:46.634279 [debug] [MainThread]: Connection 'test.airquality.not_null_stg_measurements_measured_at.659f396a10' was properly closed.
+[0m21:08:46.634486 [debug] [MainThread]: Connection 'test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f' was properly closed.
+[0m21:08:46.634683 [debug] [MainThread]: Connection 'test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c' was properly closed.
+[0m21:08:46.639467 [info ] [MainThread]: 
+[0m21:08:46.639790 [info ] [MainThread]: Finished running 4 data tests in 0 hours 0 minutes and 3.72 seconds (3.72s).
+[0m21:08:46.640657 [debug] [MainThread]: Command end result
+[0m21:08:46.707905 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:08:46.710189 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:08:46.711950 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:08:46.717633 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/run_results.json
+[0m21:08:46.717855 [info ] [MainThread]: 
+[0m21:08:46.718090 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:08:46.718251 [info ] [MainThread]: 
+[0m21:08:46.718437 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=4
+[0m21:08:46.718912 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 5.0712566, "process_in_blocks": "0", "process_kernel_time": 0.576001, "process_mem_max_rss": "248709120", "process_out_blocks": "0", "process_user_time": 2.395529}
+[0m21:08:46.719376 [debug] [MainThread]: Command `dbt test` succeeded at 21:08:46.719312 after 5.07 seconds
+[0m21:08:46.719615 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f3916d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106dd3800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f4e1de0>]}
+[0m21:08:46.719839 [debug] [MainThread]: Flushing usage events
+[0m21:08:47.399640 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:23:46.628742 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104ef23c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10668e710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10668e990>]}
+
+
+============================== 21:23:46.633289 | e39543a1-253c-42cc-a08a-4978978725b8 ==============================
+[0m21:23:46.633289 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:23:46.633769 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'target_path': 'None', 'cache_selected_only': 'False', 'hints_enabled': 'True', 'introspect': 'True', 'fail_fast': 'False', 'debug': 'False', 'no_print': 'None', 'use_experimental_parser': 'False', 'invocation_command': 'dbt run', 'indirect_selection': 'eager', 'log_format': 'default', 'partial_parse': 'True', 'maximum_seed_size_mib': '1', 'log_path': '/Users/yllahmeti/projects/air-quality-pipeline/transform/logs', 'send_anonymous_usage_stats': 'True', 'empty': 'False', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'use_colors': 'True', 'warn_error': 'None', 'write_json': 'True', 'version_check': 'True', 'profiles_dir': '/Users/yllahmeti/.dbt', 'static_parser': 'True'}
+[0m21:23:47.046567 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e39543a1-253c-42cc-a08a-4978978725b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107e88050>]}
+[0m21:23:47.087622 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e39543a1-253c-42cc-a08a-4978978725b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107363680>]}
+[0m21:23:47.088482 [info ] [MainThread]: Registered adapter: athena=1.11.1
+[0m21:23:47.166773 [debug] [MainThread]: checksum: a3d44465784138c057fdda31aa63af20de8edc9de24d7d56dac01e63aa67dbb9, vars: {}, profile: airquality, target: dev, version: 1.12.4
+[0m21:23:47.291356 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 2 files added, 2 files changed.
+[0m21:23:47.291753 [debug] [MainThread]: Partial parsing: added file: airquality://models/marts/mart_pm25_weather.sql
+[0m21:23:47.291955 [debug] [MainThread]: Partial parsing: added file: airquality://models/staging/stg_weather.sql
+[0m21:23:47.292296 [debug] [MainThread]: Partial parsing: updated file: airquality://models/staging/sources.yml
+[0m21:23:47.292500 [debug] [MainThread]: Partial parsing: updated file: airquality://models/staging/stg_measurements.sql
+[0m21:23:47.804604 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e39543a1-253c-42cc-a08a-4978978725b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107c4bd50>]}
+[0m21:23:47.879333 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:23:47.882218 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:23:47.897728 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:23:47.905746 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e39543a1-253c-42cc-a08a-4978978725b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107da4b90>]}
+[0m21:23:47.906071 [info ] [MainThread]: Found 3 models, 4 data tests, 2 sources, 621 macros
+[0m21:23:47.906288 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e39543a1-253c-42cc-a08a-4978978725b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107db73f0>]}
+[0m21:23:47.907761 [info ] [MainThread]: 
+[0m21:23:47.907987 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:23:47.908146 [info ] [MainThread]: 
+[0m21:23:47.908503 [debug] [MainThread]: Acquiring new athena connection 'master'
+[0m21:23:47.912361 [debug] [ThreadPool]: Acquiring new athena connection 'list_awsdatacatalog'
+[0m21:23:47.912659 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:23:48.354609 [debug] [ThreadPool]: On list_awsdatacatalog: No close available on handle
+[0m21:23:48.356901 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_awsdatacatalog, now list_awsdatacatalog_airquality)
+[0m21:23:48.357304 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m21:23:49.075094 [debug] [ThreadPool]: On list_awsdatacatalog_airquality: No close available on handle
+[0m21:23:49.076772 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e39543a1-253c-42cc-a08a-4978978725b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108fd8600>]}
+[0m21:23:49.081344 [debug] [Thread-2 (]: Began running node model.airquality.stg_weather
+[0m21:23:49.081786 [debug] [Thread-1 (]: Began running node model.airquality.stg_measurements
+[0m21:23:49.082736 [info ] [Thread-1 (]: 1 of 3 START sql view model airquality.stg_measurements ........................ [RUN]
+[0m21:23:49.083370 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_awsdatacatalog_airquality, now model.airquality.stg_measurements)
+[0m21:23:49.082330 [info ] [Thread-2 (]: 2 of 3 START sql view model airquality.stg_weather ............................. [RUN]
+[0m21:23:49.084062 [debug] [Thread-2 (]: Acquiring new athena connection 'model.airquality.stg_weather'
+[0m21:23:49.084304 [debug] [Thread-2 (]: Began compiling node model.airquality.stg_weather
+[0m21:23:49.083691 [debug] [Thread-1 (]: Began compiling node model.airquality.stg_measurements
+[0m21:23:49.092834 [debug] [Thread-1 (]: Writing injected SQL for node "model.airquality.stg_measurements"
+[0m21:23:49.090864 [debug] [Thread-2 (]: Writing injected SQL for node "model.airquality.stg_weather"
+[0m21:23:49.093591 [debug] [Thread-1 (]: Began executing node model.airquality.stg_measurements
+[0m21:23:49.093946 [debug] [Thread-2 (]: Began executing node model.airquality.stg_weather
+[0m21:23:49.117902 [debug] [Thread-1 (]: Writing runtime sql for node "model.airquality.stg_measurements"
+[0m21:23:49.119307 [debug] [Thread-2 (]: Writing runtime sql for node "model.airquality.stg_weather"
+[0m21:23:49.120116 [debug] [Thread-2 (]: Using athena connection "model.airquality.stg_weather"
+[0m21:23:49.120382 [debug] [Thread-2 (]: On model.airquality.stg_weather: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_weather"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_weather"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."weather_raw"
+),
+
+typed as (
+    select
+        metro,
+        date_parse(hour_utc, '%Y-%m-%dT%H:%i') as measured_at,
+        temp_c,
+        wind_kmh,
+        humidity_pct
+    from source
+    where temp_c is not null
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by metro, measured_at
+            order by measured_at
+        ) as rn
+    from typed
+)
+
+select metro, measured_at, temp_c, wind_kmh, humidity_pct
+from deduped where rn = 1
+
+[0m21:23:49.120864 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m21:23:49.120648 [debug] [Thread-1 (]: Using athena connection "model.airquality.stg_measurements"
+[0m21:23:49.125039 [debug] [Thread-1 (]: On model.airquality.stg_measurements: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_measurements"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_measurements"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."measurements_raw"
+),
+
+typed as (
+    select
+        metro,
+        sensor_id,
+        location_id,
+        location_name,
+        lat,
+        lon,
+        parameter,
+        units,
+        value,
+        cast(from_iso8601_timestamp(hour_utc) as timestamp) as measured_at,
+        pct_complete,
+        dt
+    from source
+    where value is not null
+      and pct_complete >= 75
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by sensor_id, measured_at
+            order by pct_complete desc
+        ) as rn
+    from typed
+)
+
+select * from deduped where rn = 1
+
+[0m21:23:49.125294 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:23:49.204268 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_weather"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_weather"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."weather_raw"
+),
+
+typed as (
+    select
+        metro,
+        date_parse(hour_utc, '%Y-%m-%dT%H:%i') as measured_at,
+        temp_c,
+        wind_kmh,
+        humidity_pct
+    from source
+    where temp_c is not null
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by metro, measured_at
+            order by measured_at
+        ) as rn
+    from typed
+)
+
+select metro, measured_at, temp_c, wind_kmh, humidity_pct
+from deduped where rn = 1
+[0m21:23:49.205062 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_measurements"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_measurements"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."measurements_raw"
+),
+
+typed as (
+    select
+        metro,
+        sensor_id,
+        location_id,
+        location_name,
+        lat,
+        lon,
+        parameter,
+        units,
+        value,
+        cast(from_iso8601_timestamp(hour_utc) as timestamp) as measured_at,
+        pct_complete,
+        dt
+    from source
+    where value is not null
+      and pct_complete >= 75
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by sensor_id, measured_at
+            order by pct_complete desc
+        ) as rn
+    from typed
+)
+
+select * from deduped where rn = 1
+[0m21:23:49.562128 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 0c5cfc74-5bae-4e48-bbed-b97e832419df started
+[0m21:23:49.575289 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query 98640194-84dc-4110-973c-ff4a77951de1 started
+[0m21:23:49.649845 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 0c5cfc74-5bae-4e48-bbed-b97e832419df has state RUNNING
+[0m21:23:49.664626 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query 98640194-84dc-4110-973c-ff4a77951de1 has state RUNNING
+[0m21:23:50.733549 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 0c5cfc74-5bae-4e48-bbed-b97e832419df has state SUCCEEDED
+[0m21:23:50.746685 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query 98640194-84dc-4110-973c-ff4a77951de1 has state SUCCEEDED
+[0m21:23:50.847638 [debug] [Thread-1 (]: SQL status: OK -1 in 1.722 seconds
+[0m21:23:50.869895 [debug] [Thread-2 (]: SQL status: OK -1 in 1.749 seconds
+[0m21:23:51.252420 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Total table versions: ['0']
+[0m21:23:51.255111 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Versions to delete: []
+[0m21:23:51.265025 [debug] [Thread-2 (]: On model.airquality.stg_weather: No close available on handle
+[0m21:23:51.267303 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e39543a1-253c-42cc-a08a-4978978725b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ec68590>]}
+[0m21:23:51.268049 [info ] [Thread-2 (]: 2 of 3 OK created sql view model airquality.stg_weather ........................ [[32mOK -1[0m in 2.18s]
+[0m21:23:51.268593 [debug] [Thread-2 (]: Finished running node model.airquality.stg_weather
+[0m21:23:51.275797 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Total table versions: ['1', '0']
+[0m21:23:51.277164 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Versions to delete: []
+[0m21:23:51.278135 [debug] [Thread-1 (]: On model.airquality.stg_measurements: No close available on handle
+[0m21:23:51.278513 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e39543a1-253c-42cc-a08a-4978978725b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f31a990>]}
+[0m21:23:51.279227 [info ] [Thread-1 (]: 1 of 3 OK created sql view model airquality.stg_measurements ................... [[32mOK -1[0m in 2.20s]
+[0m21:23:51.279772 [debug] [Thread-1 (]: Finished running node model.airquality.stg_measurements
+[0m21:23:51.280467 [debug] [Thread-3 (]: Began running node model.airquality.mart_pm25_weather
+[0m21:23:51.280932 [info ] [Thread-3 (]: 3 of 3 START sql table model airquality.mart_pm25_weather ...................... [RUN]
+[0m21:23:51.281486 [debug] [Thread-3 (]: Acquiring new athena connection 'model.airquality.mart_pm25_weather'
+[0m21:23:51.281789 [debug] [Thread-3 (]: Began compiling node model.airquality.mart_pm25_weather
+[0m21:23:51.283970 [debug] [Thread-3 (]: Writing injected SQL for node "model.airquality.mart_pm25_weather"
+[0m21:23:51.284678 [debug] [Thread-3 (]: Began executing node model.airquality.mart_pm25_weather
+[0m21:23:51.325535 [debug] [Thread-3 (]: Skip partitioning: False
+[0m21:23:51.326043 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m21:23:51.693855 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: S3 path does not exist
+[0m21:23:51.695231 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Running Athena query:
+-- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.mart_pm25_weather"} */
+create table "awsdatacatalog"."airquality"."mart_pm25_weather"
+    with (
+      table_type='hive',
+      is_external=true,external_location='s3://airquality-lake-338534047403/curated/airquality/mart_pm25_weather/0f2007cd-6397-4f4b-871c-25f6833e025b',
+      format='parquet'
+    )
+    as
+      
+
+with pm25 as (
+    select metro, location_name, measured_at, value as pm25_ugm3
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    where parameter = 'pm25'
+),
+
+weather as (
+    select metro, measured_at, temp_c, wind_kmh, humidity_pct
+    from "awsdatacatalog"."airquality"."stg_weather"
+)
+
+select
+    p.metro,
+    p.location_name,
+    p.measured_at,
+    p.pm25_ugm3,
+    w.temp_c,
+    w.wind_kmh,
+    w.humidity_pct,
+    p.pm25_ugm3 > 15 as over_who_daily
+from pm25 p
+left join weather w
+    on  p.metro = w.metro
+    and p.measured_at = w.measured_at
+[0m21:23:51.696035 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.mart_pm25_weather"} */
+create table "awsdatacatalog"."airquality"."mart_pm25_weather"
+    with (
+      table_type='hive',
+      is_external=true,external_location='s3://airquality-lake-338534047403/curated/airquality/mart_pm25_weather/0f2007cd-6397-4f4b-871c-25f6833e025b',
+      format='parquet'
+    )
+    as
+      
+
+with pm25 as (
+    select metro, location_name, measured_at, value as pm25_ugm3
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    where parameter = 'pm25'
+),
+
+weather as (
+    select metro, measured_at, temp_c, wind_kmh, humidity_pct
+    from "awsdatacatalog"."airquality"."stg_weather"
+)
+
+select
+    p.metro,
+    p.location_name,
+    p.measured_at,
+    p.pm25_ugm3,
+    w.temp_c,
+    w.wind_kmh,
+    w.humidity_pct,
+    p.pm25_ugm3 > 15 as over_who_daily
+from pm25 p
+left join weather w
+    on  p.metro = w.metro
+    and p.measured_at = w.measured_at
+[0m21:23:51.957942 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query d0e004d5-c93c-4961-a672-1783da920233 started
+[0m21:23:52.038514 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query d0e004d5-c93c-4961-a672-1783da920233 has state QUEUED
+[0m21:23:53.122800 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query d0e004d5-c93c-4961-a672-1783da920233 has state RUNNING
+[0m21:23:54.199900 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query d0e004d5-c93c-4961-a672-1783da920233 has state SUCCEEDED
+[0m21:23:54.325415 [debug] [Thread-3 (]: COMPILED CODE RESULT: {"rowcount":195,"data_scanned_in_bytes":347214}
+[0m21:23:54.330875 [debug] [Thread-3 (]: Using athena connection "model.airquality.mart_pm25_weather"
+[0m21:23:54.331389 [debug] [Thread-3 (]: On model.airquality.mart_pm25_weather: alter table `airquality`.`mart_pm25_weather` set tblproperties ('classification' = 'parquet')
+[0m21:23:54.331782 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Execute: alter table `airquality`.`mart_pm25_weather` set tblproperties ('classification' = 'parquet')
+[0m21:23:54.459358 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 6ec5d153-afe8-41d2-b027-136c834a0d6b started
+[0m21:23:54.535251 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 6ec5d153-afe8-41d2-b027-136c834a0d6b has state QUEUED
+[0m21:23:55.625049 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 6ec5d153-afe8-41d2-b027-136c834a0d6b has state SUCCEEDED
+[0m21:23:55.750030 [debug] [Thread-3 (]: SQL status: OK -1 in 1.418 seconds
+[0m21:23:55.752875 [debug] [Thread-3 (]: Writing runtime sql for node "model.airquality.mart_pm25_weather"
+[0m21:23:55.755018 [debug] [Thread-3 (]: Using athena connection "model.airquality.mart_pm25_weather"
+[0m21:23:55.755452 [debug] [Thread-3 (]: On model.airquality.mart_pm25_weather: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.mart_pm25_weather"} */
+SELECT '{"rowcount":195,"data_scanned_in_bytes":347214}';
+[0m21:23:55.755741 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.mart_pm25_weather"} */
+SELECT '{"rowcount":195,"data_scanned_in_bytes":347214}';
+[0m21:23:55.883359 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 1b4a437e-51c9-4883-9f1b-cf0850c4a78c started
+[0m21:23:55.969669 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 1b4a437e-51c9-4883-9f1b-cf0850c4a78c has state RUNNING
+[0m21:23:57.063520 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 1b4a437e-51c9-4883-9f1b-cf0850c4a78c has state SUCCEEDED
+[0m21:23:57.064864 [debug] [Thread-3 (]: SQL status: OK 195 in 1.309 seconds
+[0m21:23:57.068345 [debug] [Thread-3 (]: On model.airquality.mart_pm25_weather: No close available on handle
+[0m21:23:57.069035 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e39543a1-253c-42cc-a08a-4978978725b8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ffcd090>]}
+[0m21:23:57.069521 [info ] [Thread-3 (]: 3 of 3 OK created sql table model airquality.mart_pm25_weather ................. [[32mOK 195[0m in 5.79s]
+[0m21:23:57.069889 [debug] [Thread-3 (]: Finished running node model.airquality.mart_pm25_weather
+[0m21:23:57.071031 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:23:57.071252 [debug] [MainThread]: Connection 'model.airquality.stg_measurements' was properly closed.
+[0m21:23:57.071414 [debug] [MainThread]: Connection 'model.airquality.stg_weather' was properly closed.
+[0m21:23:57.071552 [debug] [MainThread]: Connection 'model.airquality.mart_pm25_weather' was properly closed.
+[0m21:23:57.073986 [info ] [MainThread]: 
+[0m21:23:57.074203 [info ] [MainThread]: Finished running 1 table model, 2 view models in 0 hours 0 minutes and 9.17 seconds (9.17s).
+[0m21:23:57.074822 [debug] [MainThread]: Command end result
+[0m21:23:57.102641 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:23:57.104711 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:23:57.106454 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:23:57.111488 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/run_results.json
+[0m21:23:57.111679 [info ] [MainThread]: 
+[0m21:23:57.111892 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:23:57.112048 [info ] [MainThread]: 
+[0m21:23:57.112223 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=3
+[0m21:23:57.112616 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 10.551856, "process_in_blocks": "0", "process_kernel_time": 0.500415, "process_mem_max_rss": "267354112", "process_out_blocks": "0", "process_user_time": 2.636894}
+[0m21:23:57.113014 [debug] [MainThread]: Command `dbt run` succeeded at 21:23:57.112957 after 10.55 seconds
+[0m21:23:57.113238 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1085b2ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f3c0250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1067480c0>]}
+[0m21:23:57.113439 [debug] [MainThread]: Flushing usage events
+[0m21:23:57.755831 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:30:16.891035 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111ad63c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115592710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x115592990>]}
+
+
+============================== 21:30:16.895512 | 99f40aae-ce4d-4b99-abbe-740da49e99b0 ==============================
+[0m21:30:16.895512 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:30:16.895955 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'invocation_command': 'dbt run', 'log_cache_events': 'False', 'write_json': 'True', 'target_path': 'None', 'use_colors': 'True', 'partial_parse': 'True', 'profiles_dir': '/Users/yllahmeti/.dbt', 'maximum_seed_size_mib': '1', 'empty': 'False', 'log_path': '/Users/yllahmeti/projects/air-quality-pipeline/transform/logs', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'printer_width': '80', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'static_parser': 'True', 'version_check': 'True', 'debug': 'False', 'fail_fast': 'False', 'hints_enabled': 'True', 'log_format': 'default', 'no_print': 'None'}
+[0m21:30:17.305959 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '99f40aae-ce4d-4b99-abbe-740da49e99b0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117c8c050>]}
+[0m21:30:17.347060 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '99f40aae-ce4d-4b99-abbe-740da49e99b0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x116d67680>]}
+[0m21:30:17.347946 [info ] [MainThread]: Registered adapter: athena=1.11.1
+[0m21:30:17.425799 [debug] [MainThread]: checksum: a3d44465784138c057fdda31aa63af20de8edc9de24d7d56dac01e63aa67dbb9, vars: {}, profile: airquality, target: dev, version: 1.12.4
+[0m21:30:17.551603 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:30:17.551905 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m21:30:17.552074 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:30:17.559830 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '99f40aae-ce4d-4b99-abbe-740da49e99b0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1200f5150>]}
+[0m21:30:17.659150 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:30:17.661887 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:30:17.677343 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:30:17.685403 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '99f40aae-ce4d-4b99-abbe-740da49e99b0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x12023d8b0>]}
+[0m21:30:17.685706 [info ] [MainThread]: Found 3 models, 4 data tests, 2 sources, 621 macros
+[0m21:30:17.685915 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '99f40aae-ce4d-4b99-abbe-740da49e99b0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1202a25f0>]}
+[0m21:30:17.687444 [info ] [MainThread]: 
+[0m21:30:17.687661 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:30:17.687817 [info ] [MainThread]: 
+[0m21:30:17.688179 [debug] [MainThread]: Acquiring new athena connection 'master'
+[0m21:30:17.692091 [debug] [ThreadPool]: Acquiring new athena connection 'list_awsdatacatalog'
+[0m21:30:17.692399 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:30:18.202389 [debug] [ThreadPool]: On list_awsdatacatalog: No close available on handle
+[0m21:30:18.204529 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_awsdatacatalog, now list_awsdatacatalog_airquality)
+[0m21:30:18.205002 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m21:30:18.841306 [debug] [ThreadPool]: On list_awsdatacatalog_airquality: No close available on handle
+[0m21:30:18.842954 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '99f40aae-ce4d-4b99-abbe-740da49e99b0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x117f77040>]}
+[0m21:30:18.846798 [debug] [Thread-2 (]: Began running node model.airquality.stg_weather
+[0m21:30:18.847113 [debug] [Thread-1 (]: Began running node model.airquality.stg_measurements
+[0m21:30:18.848020 [info ] [Thread-1 (]: 1 of 3 START sql view model airquality.stg_measurements ........................ [RUN]
+[0m21:30:18.848535 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_awsdatacatalog_airquality, now model.airquality.stg_measurements)
+[0m21:30:18.848823 [debug] [Thread-1 (]: Began compiling node model.airquality.stg_measurements
+[0m21:30:18.847536 [info ] [Thread-2 (]: 2 of 3 START sql view model airquality.stg_weather ............................. [RUN]
+[0m21:30:18.855546 [debug] [Thread-2 (]: Acquiring new athena connection 'model.airquality.stg_weather'
+[0m21:30:18.855760 [debug] [Thread-2 (]: Began compiling node model.airquality.stg_weather
+[0m21:30:18.856926 [debug] [Thread-2 (]: Writing injected SQL for node "model.airquality.stg_weather"
+[0m21:30:18.855164 [debug] [Thread-1 (]: Writing injected SQL for node "model.airquality.stg_measurements"
+[0m21:30:18.857438 [debug] [Thread-1 (]: Began executing node model.airquality.stg_measurements
+[0m21:30:18.875134 [debug] [Thread-1 (]: Writing runtime sql for node "model.airquality.stg_measurements"
+[0m21:30:18.875398 [debug] [Thread-2 (]: Began executing node model.airquality.stg_weather
+[0m21:30:18.876517 [debug] [Thread-2 (]: Writing runtime sql for node "model.airquality.stg_weather"
+[0m21:30:18.876937 [debug] [Thread-1 (]: Using athena connection "model.airquality.stg_measurements"
+[0m21:30:18.877385 [debug] [Thread-1 (]: On model.airquality.stg_measurements: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_measurements"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_measurements"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."measurements_raw"
+),
+
+typed as (
+    select
+        metro,
+        sensor_id,
+        location_id,
+        location_name,
+        lat,
+        lon,
+        parameter,
+        units,
+        value,
+        cast(from_iso8601_timestamp(hour_utc) as timestamp) as measured_at,
+        pct_complete,
+        dt
+    from source
+    where value is not null
+      and pct_complete >= 75
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by sensor_id, measured_at
+            order by pct_complete desc
+        ) as rn
+    from typed
+)
+
+select * from deduped where rn = 1
+
+[0m21:30:18.877606 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:30:18.877160 [debug] [Thread-2 (]: Using athena connection "model.airquality.stg_weather"
+[0m21:30:18.881629 [debug] [Thread-2 (]: On model.airquality.stg_weather: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_weather"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_weather"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."weather_raw"
+),
+
+typed as (
+    select
+        metro,
+        date_parse(hour_utc, '%Y-%m-%dT%H:%i') as measured_at,
+        temp_c,
+        wind_kmh,
+        humidity_pct
+    from source
+    where temp_c is not null
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by metro, measured_at
+            order by measured_at
+        ) as rn
+    from typed
+)
+
+select metro, measured_at, temp_c, wind_kmh, humidity_pct
+from deduped where rn = 1
+
+[0m21:30:18.881855 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m21:30:18.971048 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_weather"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_weather"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."weather_raw"
+),
+
+typed as (
+    select
+        metro,
+        date_parse(hour_utc, '%Y-%m-%dT%H:%i') as measured_at,
+        temp_c,
+        wind_kmh,
+        humidity_pct
+    from source
+    where temp_c is not null
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by metro, measured_at
+            order by measured_at
+        ) as rn
+    from typed
+)
+
+select metro, measured_at, temp_c, wind_kmh, humidity_pct
+from deduped where rn = 1
+[0m21:30:18.971857 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.stg_measurements"} */
+create or replace view
+    "awsdatacatalog"."airquality"."stg_measurements"
+  as
+    with source as (
+    select * from "awsdatacatalog"."airquality"."measurements_raw"
+),
+
+typed as (
+    select
+        metro,
+        sensor_id,
+        location_id,
+        location_name,
+        lat,
+        lon,
+        parameter,
+        units,
+        value,
+        cast(from_iso8601_timestamp(hour_utc) as timestamp) as measured_at,
+        pct_complete,
+        dt
+    from source
+    where value is not null
+      and pct_complete >= 75
+),
+
+deduped as (
+    select *,
+        row_number() over (
+            partition by sensor_id, measured_at
+            order by pct_complete desc
+        ) as rn
+    from typed
+)
+
+select * from deduped where rn = 1
+[0m21:30:19.272176 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 4617c370-fd9e-4ddf-a799-3d09c0042dcb started
+[0m21:30:19.276730 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query 826621d5-bc2c-43ce-9f55-1e5a7ac126ab started
+[0m21:30:19.355417 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 4617c370-fd9e-4ddf-a799-3d09c0042dcb has state RUNNING
+[0m21:30:19.357273 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query 826621d5-bc2c-43ce-9f55-1e5a7ac126ab has state RUNNING
+[0m21:30:20.434918 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query 4617c370-fd9e-4ddf-a799-3d09c0042dcb has state SUCCEEDED
+[0m21:30:20.446140 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query 826621d5-bc2c-43ce-9f55-1e5a7ac126ab has state SUCCEEDED
+[0m21:30:20.557974 [debug] [Thread-1 (]: SQL status: OK -1 in 1.680 seconds
+[0m21:30:20.577426 [debug] [Thread-2 (]: SQL status: OK -1 in 1.696 seconds
+[0m21:30:20.862940 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Total table versions: ['1', '0']
+[0m21:30:20.866072 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Total table versions: ['2', '1', '0']
+[0m21:30:20.867492 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Versions to delete: []
+[0m21:30:20.876145 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Versions to delete: []
+[0m21:30:20.879358 [debug] [Thread-1 (]: On model.airquality.stg_measurements: No close available on handle
+[0m21:30:20.878504 [debug] [Thread-2 (]: On model.airquality.stg_weather: No close available on handle
+[0m21:30:20.882344 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '99f40aae-ce4d-4b99-abbe-740da49e99b0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x125bbd310>]}
+[0m21:30:20.882709 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '99f40aae-ce4d-4b99-abbe-740da49e99b0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111f23070>]}
+[0m21:30:20.883382 [info ] [Thread-1 (]: 1 of 3 OK created sql view model airquality.stg_measurements ................... [[32mOK -1[0m in 2.03s]
+[0m21:30:20.884529 [debug] [Thread-1 (]: Finished running node model.airquality.stg_measurements
+[0m21:30:20.883998 [info ] [Thread-2 (]: 2 of 3 OK created sql view model airquality.stg_weather ........................ [[32mOK -1[0m in 2.03s]
+[0m21:30:20.885047 [debug] [Thread-2 (]: Finished running node model.airquality.stg_weather
+[0m21:30:20.885702 [debug] [Thread-3 (]: Began running node model.airquality.mart_pm25_weather
+[0m21:30:20.886030 [info ] [Thread-3 (]: 3 of 3 START sql table model airquality.mart_pm25_weather ...................... [RUN]
+[0m21:30:20.886425 [debug] [Thread-3 (]: Acquiring new athena connection 'model.airquality.mart_pm25_weather'
+[0m21:30:20.886656 [debug] [Thread-3 (]: Began compiling node model.airquality.mart_pm25_weather
+[0m21:30:20.888700 [debug] [Thread-3 (]: Writing injected SQL for node "model.airquality.mart_pm25_weather"
+[0m21:30:20.889187 [debug] [Thread-3 (]: Began executing node model.airquality.mart_pm25_weather
+[0m21:30:20.913535 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m21:30:21.242608 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: table_name : 338534047403.airquality.mart_pm25_weather
+[0m21:30:21.243610 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: table type : TableType.TABLE
+[0m21:30:21.247884 [debug] [Thread-3 (]: Dropping relation via Glue and S3 APIs
+[0m21:30:21.536110 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: table_name : 338534047403.airquality.mart_pm25_weather
+[0m21:30:21.537082 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: table type : TableType.TABLE
+[0m21:30:21.537768 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: "awsdatacatalog"."airquality"."mart_pm25_weather" is stored in s3://airquality-lake-338534047403/curated/airquality/mart_pm25_weather/0f2007cd-6397-4f4b-871c-25f6833e025b
+[0m21:30:21.991775 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Deleting table data: path='s3://airquality-lake-338534047403/curated/airquality/mart_pm25_weather/0f2007cd-6397-4f4b-871c-25f6833e025b', bucket='airquality-lake-338534047403', prefix='curated/airquality/mart_pm25_weather/0f2007cd-6397-4f4b-871c-25f6833e025b/'
+[0m21:30:22.879900 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Deleted table from glue catalog: "awsdatacatalog"."airquality"."mart_pm25_weather"
+[0m21:30:22.907978 [debug] [Thread-3 (]: Skip partitioning: False
+[0m21:30:23.130185 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: S3 path does not exist
+[0m21:30:23.131163 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Running Athena query:
+-- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.mart_pm25_weather"} */
+create table "awsdatacatalog"."airquality"."mart_pm25_weather"
+    with (
+      table_type='hive',
+      is_external=true,external_location='s3://airquality-lake-338534047403/curated/airquality/mart_pm25_weather/5d6f1369-34d9-4570-83cc-c1d0c4fe7ebd',
+      format='parquet'
+    )
+    as
+      
+
+with pm25 as (
+    select metro, location_name, measured_at, value as pm25_ugm3
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    where parameter = 'pm25'
+),
+
+weather as (
+    select metro, measured_at, temp_c, wind_kmh, humidity_pct
+    from "awsdatacatalog"."airquality"."stg_weather"
+)
+
+select
+    p.metro,
+    p.location_name,
+    p.measured_at,
+    p.pm25_ugm3,
+    w.temp_c,
+    w.wind_kmh,
+    w.humidity_pct,
+    p.pm25_ugm3 > 15 as over_who_daily
+from pm25 p
+left join weather w
+    on  p.metro = w.metro
+    and p.measured_at = w.measured_at
+[0m21:30:23.131605 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.mart_pm25_weather"} */
+create table "awsdatacatalog"."airquality"."mart_pm25_weather"
+    with (
+      table_type='hive',
+      is_external=true,external_location='s3://airquality-lake-338534047403/curated/airquality/mart_pm25_weather/5d6f1369-34d9-4570-83cc-c1d0c4fe7ebd',
+      format='parquet'
+    )
+    as
+      
+
+with pm25 as (
+    select metro, location_name, measured_at, value as pm25_ugm3
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    where parameter = 'pm25'
+),
+
+weather as (
+    select metro, measured_at, temp_c, wind_kmh, humidity_pct
+    from "awsdatacatalog"."airquality"."stg_weather"
+)
+
+select
+    p.metro,
+    p.location_name,
+    p.measured_at,
+    p.pm25_ugm3,
+    w.temp_c,
+    w.wind_kmh,
+    w.humidity_pct,
+    p.pm25_ugm3 > 15 as over_who_daily
+from pm25 p
+left join weather w
+    on  p.metro = w.metro
+    and p.measured_at = w.measured_at
+[0m21:30:23.397093 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 60248b5d-6c73-4245-9ec1-c23f4d661aed started
+[0m21:30:23.472396 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 60248b5d-6c73-4245-9ec1-c23f4d661aed has state QUEUED
+[0m21:30:24.559025 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 60248b5d-6c73-4245-9ec1-c23f4d661aed has state RUNNING
+[0m21:30:25.651235 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 60248b5d-6c73-4245-9ec1-c23f4d661aed has state RUNNING
+[0m21:30:26.729678 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 60248b5d-6c73-4245-9ec1-c23f4d661aed has state SUCCEEDED
+[0m21:30:26.848181 [debug] [Thread-3 (]: COMPILED CODE RESULT: {"rowcount":179,"data_scanned_in_bytes":138492}
+[0m21:30:26.853533 [debug] [Thread-3 (]: Using athena connection "model.airquality.mart_pm25_weather"
+[0m21:30:26.853921 [debug] [Thread-3 (]: On model.airquality.mart_pm25_weather: alter table `airquality`.`mart_pm25_weather` set tblproperties ('classification' = 'parquet')
+[0m21:30:26.854239 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Execute: alter table `airquality`.`mart_pm25_weather` set tblproperties ('classification' = 'parquet')
+[0m21:30:26.983291 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 05a70072-9fc3-4f90-8209-56031723266a started
+[0m21:30:27.068664 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 05a70072-9fc3-4f90-8209-56031723266a has state QUEUED
+[0m21:30:28.153476 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 05a70072-9fc3-4f90-8209-56031723266a has state SUCCEEDED
+[0m21:30:28.264675 [debug] [Thread-3 (]: SQL status: OK -1 in 1.410 seconds
+[0m21:30:28.267442 [debug] [Thread-3 (]: Writing runtime sql for node "model.airquality.mart_pm25_weather"
+[0m21:30:28.269115 [debug] [Thread-3 (]: Using athena connection "model.airquality.mart_pm25_weather"
+[0m21:30:28.269727 [debug] [Thread-3 (]: On model.airquality.mart_pm25_weather: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.mart_pm25_weather"} */
+SELECT '{"rowcount":179,"data_scanned_in_bytes":138492}';
+[0m21:30:28.270370 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "model.airquality.mart_pm25_weather"} */
+SELECT '{"rowcount":179,"data_scanned_in_bytes":138492}';
+[0m21:30:28.416287 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query c8967557-fdbd-4a1c-88aa-c5af41bd21eb started
+[0m21:30:28.492597 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query c8967557-fdbd-4a1c-88aa-c5af41bd21eb has state QUEUED
+[0m21:30:29.577509 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query c8967557-fdbd-4a1c-88aa-c5af41bd21eb has state SUCCEEDED
+[0m21:30:29.578861 [debug] [Thread-3 (]: SQL status: OK 179 in 1.309 seconds
+[0m21:30:29.582206 [debug] [Thread-3 (]: On model.airquality.mart_pm25_weather: No close available on handle
+[0m21:30:29.583280 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '99f40aae-ce4d-4b99-abbe-740da49e99b0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x127f24b90>]}
+[0m21:30:29.584465 [info ] [Thread-3 (]: 3 of 3 OK created sql table model airquality.mart_pm25_weather ................. [[32mOK 179[0m in 8.70s]
+[0m21:30:29.585423 [debug] [Thread-3 (]: Finished running node model.airquality.mart_pm25_weather
+[0m21:30:29.587702 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:30:29.588063 [debug] [MainThread]: Connection 'model.airquality.stg_measurements' was properly closed.
+[0m21:30:29.588307 [debug] [MainThread]: Connection 'model.airquality.stg_weather' was properly closed.
+[0m21:30:29.588527 [debug] [MainThread]: Connection 'model.airquality.mart_pm25_weather' was properly closed.
+[0m21:30:29.593102 [info ] [MainThread]: 
+[0m21:30:29.593483 [info ] [MainThread]: Finished running 1 table model, 2 view models in 0 hours 0 minutes and 11.90 seconds (11.90s).
+[0m21:30:29.594460 [debug] [MainThread]: Command end result
+[0m21:30:29.628284 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:30:29.630211 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:30:29.631906 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:30:29.636813 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/run_results.json
+[0m21:30:29.636999 [info ] [MainThread]: 
+[0m21:30:29.637211 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:30:29.637367 [info ] [MainThread]: 
+[0m21:30:29.637540 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=3
+[0m21:30:29.637927 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 12.815799, "process_in_blocks": "0", "process_kernel_time": 0.514376, "process_mem_max_rss": "264896512", "process_out_blocks": "0", "process_user_time": 2.332702}
+[0m21:30:29.638274 [debug] [MainThread]: Command `dbt run` succeeded at 21:30:29.638219 after 12.82 seconds
+[0m21:30:29.638493 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1202d0f50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x125c611d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11574c0c0>]}
+[0m21:30:29.638691 [debug] [MainThread]: Flushing usage events
+[0m21:30:30.279074 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:31:39.719536 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108bde3c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a37e710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a37e990>]}
+
+
+============================== 21:31:39.723873 | eece6c8d-9a83-4f1c-b559-f25b25a0d42f ==============================
+[0m21:31:39.723873 [info ] [MainThread]: Running with dbt=1.12.4
+[0m21:31:39.724315 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'static_parser': 'True', 'empty': 'None', 'maximum_seed_size_mib': '1', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'target_path': 'None', 'indirect_selection': 'eager', 'version_check': 'True', 'use_colors': 'True', 'write_json': 'True', 'printer_width': '80', 'partial_parse': 'True', 'no_print': 'None', 'hints_enabled': 'True', 'profiles_dir': '/Users/yllahmeti/.dbt', 'debug': 'False', 'invocation_command': 'dbt test', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_path': '/Users/yllahmeti/projects/air-quality-pipeline/transform/logs', 'use_experimental_parser': 'False', 'log_cache_events': 'False'}
+[0m21:31:40.141622 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'eece6c8d-9a83-4f1c-b559-f25b25a0d42f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bb78050>]}
+[0m21:31:40.182599 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'eece6c8d-9a83-4f1c-b559-f25b25a0d42f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b057680>]}
+[0m21:31:40.183501 [info ] [MainThread]: Registered adapter: athena=1.11.1
+[0m21:31:40.263583 [debug] [MainThread]: checksum: a3d44465784138c057fdda31aa63af20de8edc9de24d7d56dac01e63aa67dbb9, vars: {}, profile: airquality, target: dev, version: 1.12.4
+[0m21:31:40.399858 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:31:40.400248 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m21:31:40.400436 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:31:40.408545 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'eece6c8d-9a83-4f1c-b559-f25b25a0d42f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bfb1150>]}
+[0m21:31:40.509103 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:31:40.511780 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:31:40.529290 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:31:40.548406 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'eece6c8d-9a83-4f1c-b559-f25b25a0d42f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c3c7890>]}
+[0m21:31:40.548876 [info ] [MainThread]: Found 3 models, 4 data tests, 2 sources, 621 macros
+[0m21:31:40.549161 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'eece6c8d-9a83-4f1c-b559-f25b25a0d42f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c32e7b0>]}
+[0m21:31:40.551015 [info ] [MainThread]: 
+[0m21:31:40.551298 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m21:31:40.551478 [info ] [MainThread]: 
+[0m21:31:40.551860 [debug] [MainThread]: Acquiring new athena connection 'master'
+[0m21:31:40.556942 [debug] [ThreadPool]: Acquiring new athena connection 'list_awsdatacatalog_airquality'
+[0m21:31:40.557313 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:31:41.617997 [debug] [ThreadPool]: On list_awsdatacatalog_airquality: No close available on handle
+[0m21:31:41.621075 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'eece6c8d-9a83-4f1c-b559-f25b25a0d42f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c30d4a0>]}
+[0m21:31:41.626789 [debug] [Thread-4 (]: Began running node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:31:41.627585 [debug] [Thread-1 (]: Began running node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:31:41.628050 [debug] [Thread-3 (]: Began running node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:31:41.629835 [info ] [Thread-3 (]: 3 of 4 START test not_null_stg_measurements_measured_at ........................ [RUN]
+[0m21:31:41.630514 [debug] [Thread-3 (]: Acquiring new athena connection 'test.airquality.not_null_stg_measurements_measured_at.659f396a10'
+[0m21:31:41.629445 [info ] [Thread-1 (]: 1 of 4 START test accepted_values_stg_measurements_parameter__pm25__no2__o3 .... [RUN]
+[0m21:31:41.628504 [debug] [Thread-2 (]: Began running node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:31:41.629005 [info ] [Thread-4 (]: 4 of 4 START test not_null_stg_measurements_sensor_id .......................... [RUN]
+[0m21:31:41.630923 [debug] [Thread-3 (]: Began compiling node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:31:41.631579 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_awsdatacatalog_airquality, now test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e)
+[0m21:31:41.631979 [info ] [Thread-2 (]: 2 of 4 START test dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at  [RUN]
+[0m21:31:41.632534 [debug] [Thread-4 (]: Acquiring new athena connection 'test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c'
+[0m21:31:41.651550 [debug] [Thread-1 (]: Began compiling node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:31:41.653684 [debug] [Thread-3 (]: Writing injected SQL for node "test.airquality.not_null_stg_measurements_measured_at.659f396a10"
+[0m21:31:41.654211 [debug] [Thread-2 (]: Acquiring new athena connection 'test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f'
+[0m21:31:41.654474 [debug] [Thread-4 (]: Began compiling node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:31:41.672108 [debug] [Thread-4 (]: Writing injected SQL for node "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"
+[0m21:31:41.668264 [debug] [Thread-2 (]: Began compiling node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:31:41.667896 [debug] [Thread-1 (]: Writing injected SQL for node "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"
+[0m21:31:41.684334 [debug] [Thread-3 (]: Began executing node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:31:41.683996 [debug] [Thread-2 (]: Writing injected SQL for node "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"
+[0m21:31:41.698485 [debug] [Thread-4 (]: Began executing node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:31:41.700672 [debug] [Thread-4 (]: Writing runtime sql for node "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"
+[0m21:31:41.701997 [debug] [Thread-3 (]: Writing runtime sql for node "test.airquality.not_null_stg_measurements_measured_at.659f396a10"
+[0m21:31:41.702253 [debug] [Thread-1 (]: Began executing node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:31:41.703371 [debug] [Thread-1 (]: Writing runtime sql for node "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"
+[0m21:31:41.703619 [debug] [Thread-2 (]: Began executing node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:31:41.704638 [debug] [Thread-2 (]: Writing runtime sql for node "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"
+[0m21:31:41.704965 [debug] [Thread-3 (]: Using athena connection "test.airquality.not_null_stg_measurements_measured_at.659f396a10"
+[0m21:31:41.705443 [debug] [Thread-3 (]: On test.airquality.not_null_stg_measurements_measured_at.659f396a10: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_measured_at.659f396a10"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select measured_at
+from "awsdatacatalog"."airquality"."stg_measurements"
+where measured_at is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:31:41.705705 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m21:31:41.705234 [debug] [Thread-4 (]: Using athena connection "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"
+[0m21:31:41.705949 [debug] [Thread-1 (]: Using athena connection "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"
+[0m21:31:41.710793 [debug] [Thread-1 (]: On test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        parameter as value_field,
+        count(*) as n_records
+
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    group by parameter
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'pm25','no2','o3'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:31:41.710992 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:31:41.710287 [debug] [Thread-2 (]: Using athena connection "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"
+[0m21:31:41.710493 [debug] [Thread-4 (]: On test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sensor_id
+from "awsdatacatalog"."airquality"."stg_measurements"
+where sensor_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:31:41.715188 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m21:31:41.714849 [debug] [Thread-2 (]: On test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+
+
+
+
+with validation_errors as (
+
+    select
+        sensor_id, measured_at
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    group by sensor_id, measured_at
+    having count(*) > 1
+
+)
+
+select *
+from validation_errors
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:31:41.719228 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m21:31:41.909839 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select sensor_id
+from "awsdatacatalog"."airquality"."stg_measurements"
+where sensor_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:31:41.910872 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+
+
+
+
+with validation_errors as (
+select
+        sensor_id, measured_at
+    from "awsdatacatalog"."airquality"."stg_measurements"
+    group by sensor_id, measured_at
+    having count(*) > 1
+
+)
+
+select *
+from validation_errors
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:31:41.914777 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.not_null_stg_measurements_measured_at.659f396a10"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select measured_at
+from "awsdatacatalog"."airquality"."stg_measurements"
+where measured_at is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:31:41.917940 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Execute: -- /* {"app": "dbt", "dbt_version": "1.12.4", "profile_name": "airquality", "target_name": "dev", "node_id": "test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+select
+        parameter as value_field,
+        count(*) as n_records
+from "awsdatacatalog"."airquality"."stg_measurements"
+    group by parameter
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'pm25','no2','o3'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m21:31:42.216844 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query c0e85607-ab84-4de4-9ea0-518416f151ee started
+[0m21:31:42.232061 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query f4f69294-f51c-4b52-b958-4d0748996d33 started
+[0m21:31:42.234500 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Athena query f30db9af-8b87-4c03-acad-b33e3addc6b0 started
+[0m21:31:42.235974 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 0575e7b4-9832-444f-97cb-f28a57267d29 started
+[0m21:31:42.316940 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query c0e85607-ab84-4de4-9ea0-518416f151ee has state QUEUED
+[0m21:31:42.318746 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Athena query f30db9af-8b87-4c03-acad-b33e3addc6b0 has state QUEUED
+[0m21:31:42.320643 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 0575e7b4-9832-444f-97cb-f28a57267d29 has state QUEUED
+[0m21:31:42.321868 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query f4f69294-f51c-4b52-b958-4d0748996d33 has state QUEUED
+[0m21:31:43.397332 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 0575e7b4-9832-444f-97cb-f28a57267d29 has state RUNNING
+[0m21:31:43.409608 [debug] [Thread-2 (]: dbt.adapters.athena.constants adapter: Athena query c0e85607-ab84-4de4-9ea0-518416f151ee has state SUCCEEDED
+[0m21:31:43.413425 [debug] [Thread-4 (]: dbt.adapters.athena.constants adapter: Athena query f30db9af-8b87-4c03-acad-b33e3addc6b0 has state SUCCEEDED
+[0m21:31:43.415865 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query f4f69294-f51c-4b52-b958-4d0748996d33 has state RUNNING
+[0m21:31:43.558034 [debug] [Thread-2 (]: SQL status: OK 0 in 1.839 seconds
+[0m21:31:43.568952 [debug] [Thread-2 (]: On test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f: No close available on handle
+[0m21:31:43.572407 [debug] [Thread-4 (]: SQL status: OK 0 in 1.857 seconds
+[0m21:31:43.574230 [debug] [Thread-4 (]: On test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c: No close available on handle
+[0m21:31:43.570510 [info ] [Thread-2 (]: 2 of 4 PASS dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at  [[32mPASS[0m in 1.92s]
+[0m21:31:43.575700 [debug] [Thread-2 (]: Finished running node test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f
+[0m21:31:43.575007 [info ] [Thread-4 (]: 4 of 4 PASS not_null_stg_measurements_sensor_id ................................ [[32mPASS[0m in 1.94s]
+[0m21:31:43.576395 [debug] [Thread-4 (]: Finished running node test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c
+[0m21:31:44.491139 [debug] [Thread-3 (]: dbt.adapters.athena.constants adapter: Athena query 0575e7b4-9832-444f-97cb-f28a57267d29 has state SUCCEEDED
+[0m21:31:44.499202 [debug] [Thread-1 (]: dbt.adapters.athena.constants adapter: Athena query f4f69294-f51c-4b52-b958-4d0748996d33 has state SUCCEEDED
+[0m21:31:44.641433 [debug] [Thread-3 (]: SQL status: OK 0 in 2.936 seconds
+[0m21:31:44.643653 [debug] [Thread-3 (]: On test.airquality.not_null_stg_measurements_measured_at.659f396a10: No close available on handle
+[0m21:31:44.645918 [debug] [Thread-1 (]: SQL status: OK 0 in 2.935 seconds
+[0m21:31:44.650115 [debug] [Thread-1 (]: On test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e: No close available on handle
+[0m21:31:44.647186 [info ] [Thread-3 (]: 3 of 4 PASS not_null_stg_measurements_measured_at .............................. [[32mPASS[0m in 3.02s]
+[0m21:31:44.652509 [debug] [Thread-3 (]: Finished running node test.airquality.not_null_stg_measurements_measured_at.659f396a10
+[0m21:31:44.651525 [info ] [Thread-1 (]: 1 of 4 PASS accepted_values_stg_measurements_parameter__pm25__no2__o3 .......... [[32mPASS[0m in 3.02s]
+[0m21:31:44.653343 [debug] [Thread-1 (]: Finished running node test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e
+[0m21:31:44.655405 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:31:44.655811 [debug] [MainThread]: Connection 'test.airquality.accepted_values_stg_measurements_parameter__pm25__no2__o3.34f9ce591e' was properly closed.
+[0m21:31:44.656047 [debug] [MainThread]: Connection 'test.airquality.not_null_stg_measurements_measured_at.659f396a10' was properly closed.
+[0m21:31:44.656261 [debug] [MainThread]: Connection 'test.airquality.not_null_stg_measurements_sensor_id.2ad6f93d5c' was properly closed.
+[0m21:31:44.656442 [debug] [MainThread]: Connection 'test.airquality.dbt_utils_unique_combination_of_columns_stg_measurements_sensor_id__measured_at.f4c9bec90f' was properly closed.
+[0m21:31:44.661264 [info ] [MainThread]: 
+[0m21:31:44.661927 [info ] [MainThread]: Finished running 4 data tests in 0 hours 0 minutes and 4.11 seconds (4.11s).
+[0m21:31:44.663029 [debug] [MainThread]: Command end result
+[0m21:31:44.703045 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/manifest.json
+[0m21:31:44.705589 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/semantic_manifest.json
+[0m21:31:44.707647 [debug] [MainThread]: Wrote artifact OsiDocument to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/osi_document.json
+[0m21:31:44.714122 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/yllahmeti/projects/air-quality-pipeline/transform/target/run_results.json
+[0m21:31:44.714337 [info ] [MainThread]: 
+[0m21:31:44.714591 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:31:44.714757 [info ] [MainThread]: 
+[0m21:31:44.714956 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=4
+[0m21:31:44.715480 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 5.061704, "process_in_blocks": "0", "process_kernel_time": 0.568888, "process_mem_max_rss": "244940800", "process_out_blocks": "0", "process_user_time": 2.063693}
+[0m21:31:44.716045 [debug] [MainThread]: Command `dbt test` succeeded at 21:31:44.715977 after 5.06 seconds
+[0m21:31:44.716280 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ff2fa10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f1f800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bb94b50>]}
+[0m21:31:44.716508 [debug] [MainThread]: Flushing usage events
+[0m21:31:45.280383 [debug] [MainThread]: An error was encountered while trying to flush usage events
