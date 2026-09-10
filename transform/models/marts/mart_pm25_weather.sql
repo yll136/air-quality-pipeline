@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 with pm25 as (
     select metro, location_name, measured_at, value as pm25_ugm3
