@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+collector/build/
+collector/package.zip
+collector/out/
+infra/.terraform/
+infra/*.tfstate
+infra/*.tfstate.*
+infra/out.json
+.env
+*.tfvars
+.DS_Store
