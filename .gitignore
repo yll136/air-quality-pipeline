@@ -11,3 +11,7 @@ infra/out.json
 .env
 *.tfvars
 .DS_Store
+transform/dbt_packages/
+transform/target/
+transform/logs/
+transform/out.json
